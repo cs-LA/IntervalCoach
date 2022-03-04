@@ -1,0 +1,10 @@
+/*
+ Localizable.strings
+ Language: en
+ */
+
+"intensiveTime" = "Intensive Time:";
+"relaxedTime" = "Recovery Time:";
+"repetitions" = "Repetitions:";
+"start" = "Start";
+"stop" = "Stop";

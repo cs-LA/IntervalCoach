@@ -1,0 +1,10 @@
+/*
+ Localizable.strings
+ Language: de
+ */
+
+"intensiveTime" = "Intensiv-Zeit:";
+"relaxedTime" = "Erholungs-Zeit:";
+"repetitions" = "Wiederholungen:";
+"start" = "Start";
+"stop" = "Stop";
