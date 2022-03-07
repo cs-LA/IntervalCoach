@@ -16,7 +16,7 @@ class Workout: ObservableObject {
     relaxedTimeMinutes = UserDefaults.standard.integer(forKey: "relaxedTime") / 60
     relaxedTimeSeconds = UserDefaults.standard.integer(forKey: "relaxedTime") % 60
     repetitions = UserDefaults.standard.integer(forKey: "repetitions")
-  }
+ }
   
   @Published var relaxedTimeMinutes: Int
   @Published var relaxedTimeSeconds: Int
@@ -46,35 +46,57 @@ class Workout: ObservableObject {
 
     repCounter = 0
     isIntensive = false
-    secondsToGo = isIntensive
-    ? UserDefaults.standard.integer(forKey: "intensiveTime")
-    : UserDefaults.standard.integer(forKey: "relaxedTime")
-
+    secondsToGo = UserDefaults.standard.integer(forKey: "relaxedTime")
+    secondsGone = 1
+    
+    UserDefaults.standard.set(Date().timeIntervalSinceReferenceDate, forKey: "workoutStartTime")
     timer = Timer
       .publish(every: 1, on: .main, in: .common)
       .autoconnect()
       .sink { [self] _ in
-        secondsGone += 1
-        
-        if secondsGone == secondsToGo {
-          player.play()
-        }
-        
-        if secondsGone > secondsToGo {
-          isIntensive.toggle()
-          secondsToGo = isIntensive
-          ? UserDefaults.standard.integer(forKey: "intensiveTime")
-          : UserDefaults.standard.integer(forKey: "relaxedTime")
-          secondsGone = 0
-          
-          if isIntensive {
-            repCounter += 1
-            if repCounter > repetitions {
-              stop()
-            }
-          }
-        }
+        update()
       }
+  }
+  
+  func update() {
+    let intensiveTime = UserDefaults.standard.integer(forKey: "intensiveTime")
+    let relaxedTime = UserDefaults.standard.integer(forKey: "relaxedTime")
+    let repetitionTime = intensiveTime + relaxedTime
+    var secondsElapsed = Int(
+      Date().timeIntervalSinceReferenceDate - UserDefaults.standard.double(forKey: "workoutStartTime")
+    )
+    print(secondsElapsed)
+    
+    if secondsElapsed < relaxedTime {
+      repCounter = 0
+      isIntensive = false
+      secondsToGo = relaxedTime
+      secondsGone = secondsElapsed
+    }
+    else {
+      secondsElapsed = secondsElapsed - relaxedTime
+      repCounter = secondsElapsed / repetitionTime + 1
+      if repCounter > repetitions {
+        stop()
+        return
+      }
+      
+      secondsElapsed = secondsElapsed % repetitionTime
+      isIntensive = secondsElapsed < intensiveTime
+      
+      if isIntensive {
+        secondsToGo = intensiveTime
+        secondsGone = secondsElapsed
+      }
+      else {
+        secondsToGo = relaxedTime
+        secondsGone = secondsElapsed - intensiveTime
+      }
+    }
+    
+    secondsGone += 1
+    print("\(repCounter) - \(secondsGone) - \(isIntensive)")
+    if secondsGone == secondsToGo { player.play(); print("beeped") }
   }
   
   func stop() {
