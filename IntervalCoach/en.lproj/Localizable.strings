@@ -8,3 +8,7 @@
 "repetitions" = "Repetitions:";
 "start" = "Start";
 "stop" = "Stop";
+
+"intensivePeriod" = "Intensive Period";
+"relaxedPeriod" = "Recovery Period";
+"periodStarted" = "#%d: %@ started";

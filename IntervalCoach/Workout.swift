@@ -6,16 +6,19 @@ import Foundation
 import Combine
 import SwiftUI
 import AVFoundation
+import BackgroundTasks
 
 
 class Workout: ObservableObject {
   
   init() {
-    intensiveTimeMinutes = UserDefaults.standard.integer(forKey: "intensiveTime") / 60
-    intensiveTimeSeconds = UserDefaults.standard.integer(forKey: "intensiveTime") % 60
-    relaxedTimeMinutes = UserDefaults.standard.integer(forKey: "relaxedTime") / 60
-    relaxedTimeSeconds = UserDefaults.standard.integer(forKey: "relaxedTime") % 60
-    repetitions = UserDefaults.standard.integer(forKey: "repetitions")
+    let intensiveTime = max(UserDefaults.standard.integer(forKey: "intensiveTime"), 1)
+    intensiveTimeMinutes = intensiveTime / 60
+    intensiveTimeSeconds = intensiveTime % 60
+    let relaxedTime = max(UserDefaults.standard.integer(forKey: "relaxedTime"), 1)
+    relaxedTimeMinutes = relaxedTime / 60
+    relaxedTimeSeconds = relaxedTime % 60
+    repetitions = max(UserDefaults.standard.integer(forKey: "repetitions"), 1)
  }
   
   @Published var relaxedTimeMinutes: Int
@@ -39,14 +42,18 @@ class Workout: ObservableObject {
     UserDefaults.standard.set(relaxedTimeMinutes * 60 + relaxedTimeSeconds, forKey: "relaxedTime")
     UserDefaults.standard.set(repetitions, forKey: "repetitions")
     
-    intensiveTimeMinutes = UserDefaults.standard.integer(forKey: "intensiveTime") / 60
-    intensiveTimeSeconds = UserDefaults.standard.integer(forKey: "intensiveTime") % 60
-    relaxedTimeMinutes = UserDefaults.standard.integer(forKey: "relaxedTime") / 60
-    relaxedTimeSeconds = UserDefaults.standard.integer(forKey: "relaxedTime") % 60
+    let intensiveTime = max(UserDefaults.standard.integer(forKey: "intensiveTime"), 1)
+    UserDefaults.standard.set(intensiveTime, forKey: "intensiveTime")
+    intensiveTimeMinutes = intensiveTime / 60
+    intensiveTimeSeconds = intensiveTime % 60
+    let relaxedTime = max(UserDefaults.standard.integer(forKey: "relaxedTime"), 1)
+    UserDefaults.standard.set(relaxedTime, forKey: "relaxedTime")
+    relaxedTimeMinutes = relaxedTime / 60
+    relaxedTimeSeconds = relaxedTime % 60
 
     repCounter = 0
     isIntensive = false
-    secondsToGo = UserDefaults.standard.integer(forKey: "relaxedTime")
+    secondsToGo = relaxedTime
     secondsGone = 1
     
     UserDefaults.standard.set(Date().timeIntervalSinceReferenceDate, forKey: "workoutStartTime")
@@ -56,7 +63,25 @@ class Workout: ObservableObject {
       .sink { [self] _ in
         update()
       }
+    
+    var notificationInterval = -1
+    for rep in 1...UserDefaults.standard.integer(forKey: "repetitions") {
+      notificationInterval += relaxedTime
+      scheduleNotification(
+        body: String(format: "periodStarted".localized(), rep, "intensivePeriod".localized()),
+        interval: notificationInterval
+      )
+
+      notificationInterval += intensiveTime
+      scheduleNotification(
+        body: String(format: "periodStarted".localized(), rep, "relaxedPeriod".localized()),
+        interval: notificationInterval
+      )
+    }
+    notificationInterval += relaxedTime
+    scheduleNotification(body: "Workout finished", interval: notificationInterval)
   }
+  
   
   func update() {
     let intensiveTime = UserDefaults.standard.integer(forKey: "intensiveTime")
@@ -77,6 +102,7 @@ class Workout: ObservableObject {
       secondsElapsed = secondsElapsed - relaxedTime
       repCounter = secondsElapsed / repetitionTime + 1
       if repCounter > repetitions {
+        player.play()
         stop()
         return
       }
@@ -96,15 +122,49 @@ class Workout: ObservableObject {
     
     secondsGone += 1
     print("\(repCounter) - \(secondsGone) - \(isIntensive)")
-    if secondsGone == secondsToGo { player.play(); print("beeped") }
+    if secondsGone == secondsToGo {
+      player.play()
+      print("beeped")
+    }
   }
+  
   
   func stop() {
     timer?.cancel()
     timer = nil
+    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+
     secondsGone = 0
     secondsToGo = 0
     repCounter = 0
   }
   
+  
+  func scheduleNotification(body: String, interval: Int) {
+    let center = UNUserNotificationCenter.current()
+    
+    let content = UNMutableNotificationContent()
+    content.title = "IntervalCoach"
+    content.body = body
+    content.categoryIdentifier = "alarm"
+    //content.sound = UNNotificationSound.default
+    content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: "beep.mp3"))
+    
+    var trigger: UNTimeIntervalNotificationTrigger? = nil
+    if interval > 0 {
+      trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(interval), repeats: false)
+    }
+
+    let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+    center.add(request)
+  }
+
+}
+
+
+
+extension String {
+  func localized() -> String {
+    return NSLocalizedString(self, comment: "")
+  }
 }

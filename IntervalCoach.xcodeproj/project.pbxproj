@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AB6A210A27CD5AD500D70DC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB6A210C27CD5AD500D70DC6 /* Localizable.strings */; };
-		ABAB26BA27D3B47800F74AC3 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ABAB26B927D3B47800F74AC3 /* beep.mp3 */; };
 		ABC37E9527CD53A000568197 /* IntervalCoachApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC37E9427CD53A000568197 /* IntervalCoachApp.swift */; };
 		ABC37E9927CD53A400568197 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABC37E9827CD53A400568197 /* Assets.xcassets */; };
 		ABC37E9C27CD53A400568197 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABC37E9B27CD53A400568197 /* Preview Assets.xcassets */; };
@@ -17,13 +16,13 @@
 		ABC37EA727CD54C400568197 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC37EA627CD54C400568197 /* ClockView.swift */; };
 		ABC37EA927CD54EC00568197 /* CountDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC37EA827CD54EC00568197 /* CountDownView.swift */; };
 		ABC37EAB27CD552400568197 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC37EAA27CD552400568197 /* ProgressBar.swift */; };
+		ABC4443127D7561C0011532B /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ABC4443027D7561C0011532B /* beep.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AB6A210B27CD5AD500D70DC6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AB6A210D27CD5AD800D70DC6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AB8E42B927D563EA0004E940 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		ABAB26B927D3B47800F74AC3 /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = beep.mp3; path = ../../IntervalCoach0/IntervalCoach0/beep.mp3; sourceTree = "<group>"; };
 		ABC37E9127CD53A000568197 /* IntervalCoach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntervalCoach.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABC37E9427CD53A000568197 /* IntervalCoachApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalCoachApp.swift; sourceTree = "<group>"; };
 		ABC37E9827CD53A400568197 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -33,6 +32,7 @@
 		ABC37EA627CD54C400568197 /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		ABC37EA827CD54EC00568197 /* CountDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownView.swift; sourceTree = "<group>"; };
 		ABC37EAA27CD552400568197 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		ABC4443027D7561C0011532B /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,14 +65,14 @@
 		ABC37E9327CD53A000568197 /* IntervalCoach */ = {
 			isa = PBXGroup;
 			children = (
-				AB8E42B927D563EA0004E940 /* Info.plist */,
 				ABC37E9427CD53A000568197 /* IntervalCoachApp.swift */,
 				ABC37EA227CD543F00568197 /* MainScreen.swift */,
 				ABC37EA427CD547F00568197 /* Workout.swift */,
 				ABC37EA627CD54C400568197 /* ClockView.swift */,
 				ABC37EA827CD54EC00568197 /* CountDownView.swift */,
 				ABC37EAA27CD552400568197 /* ProgressBar.swift */,
-				ABAB26B927D3B47800F74AC3 /* beep.mp3 */,
+				ABC4443027D7561C0011532B /* beep.mp3 */,
+				AB8E42B927D563EA0004E940 /* Info.plist */,
 				AB6A210C27CD5AD500D70DC6 /* Localizable.strings */,
 				ABC37E9827CD53A400568197 /* Assets.xcassets */,
 				ABC37E9A27CD53A400568197 /* Preview Content */,
@@ -148,8 +148,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABC37E9C27CD53A400568197 /* Preview Assets.xcassets in Resources */,
-				ABAB26BA27D3B47800F74AC3 /* beep.mp3 in Resources */,
 				AB6A210A27CD5AD500D70DC6 /* Localizable.strings in Resources */,
+				ABC4443127D7561C0011532B /* beep.mp3 in Resources */,
 				ABC37E9927CD53A400568197 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
