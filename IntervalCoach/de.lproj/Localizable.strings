@@ -6,8 +6,6 @@
 "intensiveTime" = "Intensiv-Zeit:";
 "relaxedTime" = "Erholungs-Zeit:";
 "repetitions" = "Wiederholungen:";
-"start" = "Start";
-"stop" = "Stop";
 
 "intensivePeriod" = "Intensiv-Periode";
 "relaxedPeriod" = "Erholungs-Periode";

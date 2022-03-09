@@ -20,7 +20,7 @@ struct MainScreen: View {
     // iPadPro 12.9inch     (1024.0, 1366.0)
   }
   
-  @State private var errorText = ""
+  let frameSize = 345.0
   
   private let fieldWidth: CGFloat = 39
   private let defaultColor = Color.secondary
@@ -38,39 +38,26 @@ struct MainScreen: View {
       intensiveTimeView()
       relaxedTimeView()
 
-      Button(action: { workout.timer == nil ? workout.start() : workout.stop() }) {
-        Text(workout.timer == nil ? "start" : "stop")
-          .font(.title)
-          .fontWeight(.bold)
-          .padding(.vertical, 15)
-          .padding(.horizontal, 100)
-          .background(Color(.systemYellow))
-          .foregroundColor(Color.black)
-          .cornerRadius(10)
-      }
-      .frame(minWidth: 0, maxWidth: .infinity)
-      .padding()
-      
       Spacer()
       
       ZStack {
         Text("\(workout.repCounter)")
           .font(.largeTitle)
           .padding(.bottom, 150)
+        startStopButtonView()
         CountDownView(
           progressColor: progressBarColor(),
           counter: workout.secondsGone,
           countTo: workout.secondsToGo
         )
+          .frame(height: frameSize)
       }
 
       Spacer()
 
     }
-    .frame(width: 345)
-    //.border(Color.yellow)
+    .frame(width: frameSize)
     .padding(15)
-    //.ignoresSafeArea(.keyboard)
 
   }
 
@@ -80,6 +67,17 @@ struct MainScreen: View {
     return workout.isIntensive ? intensiveColor : relaxedColor
   }
   
+  
+  @ViewBuilder
+  private func startStopButtonView() -> some View {
+    let systemImageName = workout.timer == nil ? "play.fill" : "stop.fill"
+    Button(action: { workout.timer == nil ? workout.start() : workout.stop() }) {
+      Image(systemName: systemImageName)
+        .font(.system(size: 80))
+        .foregroundColor(Color(.systemOrange))
+        .padding(.top, 170)
+    }
+  }
   
   
   @ViewBuilder

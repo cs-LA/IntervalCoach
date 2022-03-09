@@ -19,6 +19,19 @@
 		ABC4443127D7561C0011532B /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ABC4443027D7561C0011532B /* beep.mp3 */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		AB4EEF4027D7A164000377C2 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		AB6A210B27CD5AD500D70DC6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AB6A210D27CD5AD800D70DC6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -98,6 +111,7 @@
 				ABC37E8D27CD53A000568197 /* Sources */,
 				ABC37E8E27CD53A000568197 /* Frameworks */,
 				ABC37E8F27CD53A000568197 /* Resources */,
+				AB4EEF4027D7A164000377C2 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
@@ -307,7 +321,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"IntervalCoach/Preview Content\"";
 				DEVELOPMENT_TEAM = R49U8BCC8W;
 				ENABLE_PREVIEWS = YES;
@@ -337,7 +351,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"IntervalCoach/Preview Content\"";
 				DEVELOPMENT_TEAM = R49U8BCC8W;
 				ENABLE_PREVIEWS = YES;

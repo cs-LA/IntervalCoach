@@ -22,7 +22,7 @@ struct ClockView: View {
     let seconds = currentTime % 60
     let minutes = Int(currentTime / 60)
     
-    return "\(minutes):\(seconds < 10 ? "0" : "")\(seconds)"
+    return "\(minutes < 10 ? "0" : "")\(minutes):\(seconds < 10 ? "0" : "")\(seconds)"
   }
   
 }

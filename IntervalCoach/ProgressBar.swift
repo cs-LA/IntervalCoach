@@ -15,7 +15,7 @@ struct ProgressTrack: View {
   var body: some View {
     Circle()
       .fill(Color.clear)
-      .frame(width: 250, height: 250)
+      //.frame(width: 250, height: 250)
       .overlay(
         Circle().stroke(Color.secondary, lineWidth: 15)
       )
@@ -35,7 +35,7 @@ struct ProgressBar: View {
   var body: some View {
     Circle()
       .fill(Color.clear)
-      .frame(width: 250, height: 250)
+      //.frame(width: 250, height: 250)
       .overlay(
         Circle().trim(from:0, to: CGFloat(counter) / CGFloat(countTo))
           .stroke(
