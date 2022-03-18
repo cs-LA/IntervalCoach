@@ -6,51 +6,53 @@ import Foundation
 import Combine
 import SwiftUI
 import AVFoundation
-import BackgroundTasks
 
 
 class Workout: ObservableObject {
   
   init() {
-    let intensiveTime = max(UserDefaults.standard.integer(forKey: "intensiveTime"), 1)
+    let intensiveTime = max(UserDefaults.standard.integer(forKey: "intensiveTime"), 0)
     intensiveTimeMinutes = intensiveTime / 60
     intensiveTimeSeconds = intensiveTime % 60
-    let relaxedTime = max(UserDefaults.standard.integer(forKey: "relaxedTime"), 1)
+    let relaxedTime = max(UserDefaults.standard.integer(forKey: "relaxedTime"), 0)
     relaxedTimeMinutes = relaxedTime / 60
     relaxedTimeSeconds = relaxedTime % 60
     repetitions = max(UserDefaults.standard.integer(forKey: "repetitions"), 1)
- }
+
+    let startIntensiveURL = Bundle.main.url(forResource: "whistleStartIntensive", withExtension: "mp3")
+    AudioServicesCreateSystemSoundID(startIntensiveURL! as CFURL, &startIntensiveSoundID)
+    let stopIntensiveURL = Bundle.main.url(forResource: "whistleStopIntensive", withExtension: "mp3")
+    AudioServicesCreateSystemSoundID(stopIntensiveURL! as CFURL, &stopIntensiveSoundID)
+    let workoutFinishedURL = Bundle.main.url(forResource: "whistleWorkoutFinished", withExtension: "mp3")
+    AudioServicesCreateSystemSoundID(workoutFinishedURL! as CFURL, &workoutFinishedSoundID)
+  }
   
-  @Published var relaxedTimeMinutes: Int
-  @Published var relaxedTimeSeconds: Int
+  var startIntensiveSoundID = SystemSoundID(101)
+  var stopIntensiveSoundID = SystemSoundID(102)
+  var workoutFinishedSoundID = SystemSoundID(109)
+
   @Published var intensiveTimeMinutes: Int
   @Published var intensiveTimeSeconds: Int
+  @Published var relaxedTimeMinutes: Int
+  @Published var relaxedTimeSeconds: Int
   @Published var repetitions: Int
 
-  @Published var repCounter = 0
-  @Published var isIntensive = false
-  @Published var secondsToGo = 0
-  @Published var secondsGone = 0
-  
   var timer: Cancellable? = nil
-  
-  let player = try! AVAudioPlayer(contentsOf: Bundle.main.url(forResource: "beep", withExtension: "mp3")!)
-  
+  @Published var secondsGone = 0
+  var secondsToGo = 0
+  var repCounter = 0
+  var isIntensive = false
+
   
   func start() {
-    UserDefaults.standard.set(intensiveTimeMinutes * 60 + intensiveTimeSeconds, forKey: "intensiveTime")
-    UserDefaults.standard.set(relaxedTimeMinutes * 60 + relaxedTimeSeconds, forKey: "relaxedTime")
+    let intensiveTime = intensiveTimeMinutes * 60 + intensiveTimeSeconds
+    let relaxedTime = relaxedTimeMinutes * 60 + relaxedTimeSeconds
+    guard intensiveTime + relaxedTime > 0 else { return }
+    
+    UserDefaults.standard.set(intensiveTime, forKey: "intensiveTime")
+    UserDefaults.standard.set(relaxedTime, forKey: "relaxedTime")
     UserDefaults.standard.set(repetitions, forKey: "repetitions")
     
-    let intensiveTime = max(UserDefaults.standard.integer(forKey: "intensiveTime"), 1)
-    UserDefaults.standard.set(intensiveTime, forKey: "intensiveTime")
-    intensiveTimeMinutes = intensiveTime / 60
-    intensiveTimeSeconds = intensiveTime % 60
-    let relaxedTime = max(UserDefaults.standard.integer(forKey: "relaxedTime"), 1)
-    UserDefaults.standard.set(relaxedTime, forKey: "relaxedTime")
-    relaxedTimeMinutes = relaxedTime / 60
-    relaxedTimeSeconds = relaxedTime % 60
-
     repCounter = 0
     isIntensive = false
     secondsToGo = relaxedTime
@@ -64,22 +66,28 @@ class Workout: ObservableObject {
         update()
       }
     
-    var notificationInterval = -1
+    var notificationTimeOffset = -1
     for rep in 1...UserDefaults.standard.integer(forKey: "repetitions") {
-      notificationInterval += relaxedTime
-      scheduleNotification(
-        body: String(format: "periodStarted".localized(), rep, "intensivePeriod".localized()),
-        interval: notificationInterval
+      notificationTimeOffset += relaxedTime
+      scheduleBackgroundNotification(
+        body: String(format: NSLocalizedString("intensivePeriodStarted", comment: ""), rep),
+        sound: "whistleStartIntensive.mp3",
+        secondsFromNow: notificationTimeOffset
       )
 
-      notificationInterval += intensiveTime
-      scheduleNotification(
-        body: String(format: "periodStarted".localized(), rep, "relaxedPeriod".localized()),
-        interval: notificationInterval
+      notificationTimeOffset += intensiveTime
+      scheduleBackgroundNotification(
+        body: String(format: NSLocalizedString("intensivePeriodEnded", comment: ""), rep),
+        sound: "whistleStopIntensive.mp3",
+        secondsFromNow: notificationTimeOffset
       )
     }
-    notificationInterval += relaxedTime
-    scheduleNotification(body: "Workout finished", interval: notificationInterval)
+    notificationTimeOffset += relaxedTime
+    scheduleBackgroundNotification(
+      body: String(format: NSLocalizedString("workoutFinished", comment: "")),
+      sound: "whistleWorkoutFinished.mp3",
+      secondsFromNow: notificationTimeOffset
+    )
   }
   
   
@@ -87,6 +95,7 @@ class Workout: ObservableObject {
     let intensiveTime = UserDefaults.standard.integer(forKey: "intensiveTime")
     let relaxedTime = UserDefaults.standard.integer(forKey: "relaxedTime")
     let repetitionTime = intensiveTime + relaxedTime
+    
     var secondsElapsed = Int(
       Date().timeIntervalSinceReferenceDate - UserDefaults.standard.double(forKey: "workoutStartTime")
     )
@@ -102,7 +111,7 @@ class Workout: ObservableObject {
       secondsElapsed = secondsElapsed - relaxedTime
       repCounter = secondsElapsed / repetitionTime + 1
       if repCounter > repetitions {
-        player.play()
+        AudioServicesPlaySystemSound(workoutFinishedSoundID)
         stop()
         return
       }
@@ -123,8 +132,10 @@ class Workout: ObservableObject {
     secondsGone += 1
     print("\(repCounter) - \(secondsGone) - \(isIntensive)")
     if secondsGone == secondsToGo {
-      player.play()
-      print("beeped")
+      isIntensive
+      ? AudioServicesPlaySystemSound(stopIntensiveSoundID)
+      : AudioServicesPlaySystemSound(startIntensiveSoundID)
+      print("whistled")
     }
   }
   
@@ -133,38 +144,27 @@ class Workout: ObservableObject {
     timer?.cancel()
     timer = nil
     UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-
+    
     secondsGone = 0
     secondsToGo = 0
     repCounter = 0
   }
   
   
-  func scheduleNotification(body: String, interval: Int) {
-    let center = UNUserNotificationCenter.current()
-    
+  func scheduleBackgroundNotification(body: String, sound: String, secondsFromNow: Int) {
     let content = UNMutableNotificationContent()
     content.title = "IntervalCoach"
-    content.body = body
     content.categoryIdentifier = "alarm"
-    //content.sound = UNNotificationSound.default
-    content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: "beep.mp3"))
+    content.body = body
+    content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: sound))
     
     var trigger: UNTimeIntervalNotificationTrigger? = nil
-    if interval > 0 {
-      trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(interval), repeats: false)
+    if secondsFromNow > 0 {
+      trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(secondsFromNow), repeats: false)
     }
 
     let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-    center.add(request)
+    UNUserNotificationCenter.current().add(request)
   }
 
-}
-
-
-
-extension String {
-  func localized() -> String {
-    return NSLocalizedString(self, comment: "")
-  }
 }

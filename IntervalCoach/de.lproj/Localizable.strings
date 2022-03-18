@@ -7,6 +7,6 @@
 "relaxedTime" = "Erholungs-Zeit:";
 "repetitions" = "Wiederholungen:";
 
-"intensivePeriod" = "Intensiv-Periode";
-"relaxedPeriod" = "Erholungs-Periode";
-"periodStarted" = "#%d: %@ gestartet";
+"intensivePeriodStarted" = "#%d: Intensiv-Periode gestartet";
+"intensivePeriodEnded" = "#%d: Intensiv-Periode beendet";
+"workoutFinished" = "Workout beendet";

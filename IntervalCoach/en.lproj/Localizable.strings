@@ -6,9 +6,7 @@
 "intensiveTime" = "Intensive Time:";
 "relaxedTime" = "Recovery Time:";
 "repetitions" = "Repetitions:";
-"start" = "Start";
-"stop" = "Stop";
 
-"intensivePeriod" = "Intensive Period";
-"relaxedPeriod" = "Recovery Period";
-"periodStarted" = "#%d: %@ started";
+"intensivePeriodStarted" = "#%d: Intensive period startet";
+"intensivePeriodEnded" = "#%d: Intensive period ended";
+"workoutFinished" = "Workout finished";
