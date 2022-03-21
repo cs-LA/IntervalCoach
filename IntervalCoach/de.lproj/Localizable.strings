@@ -10,3 +10,5 @@
 "intensivePeriodStarted" = "#%d: Intensiv-Periode gestartet";
 "intensivePeriodEnded" = "#%d: Intensiv-Periode beendet";
 "workoutFinished" = "Workout beendet";
+
+"zeroTimeMsg" = "Mindestens eine Zeit muss größer 0 sein!";

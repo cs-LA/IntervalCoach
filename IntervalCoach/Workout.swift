@@ -36,6 +36,7 @@ class Workout: ObservableObject {
   @Published var relaxedTimeMinutes: Int
   @Published var relaxedTimeSeconds: Int
   @Published var repetitions: Int
+  @Published var errorMessage = ""
 
   var timer: Cancellable? = nil
   @Published var secondsGone = 0
@@ -45,9 +46,13 @@ class Workout: ObservableObject {
 
   
   func start() {
+    errorMessage = ""
     let intensiveTime = intensiveTimeMinutes * 60 + intensiveTimeSeconds
     let relaxedTime = relaxedTimeMinutes * 60 + relaxedTimeSeconds
-    guard intensiveTime + relaxedTime > 0 else { return }
+    guard intensiveTime + relaxedTime > 0 else {
+      errorMessage = NSLocalizedString("zeroTimeMsg", comment: "")
+      return
+    }
     
     UserDefaults.standard.set(intensiveTime, forKey: "intensiveTime")
     UserDefaults.standard.set(relaxedTime, forKey: "relaxedTime")
