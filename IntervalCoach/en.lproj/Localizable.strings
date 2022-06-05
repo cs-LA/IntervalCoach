@@ -8,6 +8,7 @@
 "repetitions" = "Repetitions:";
 
 "intensivePeriodStarted" = "#%d: Intensive period startet";
+"intensivePeriodHalfTime" = "#%d: Intensive period halftime";
 "intensivePeriodEnded" = "#%d: Intensive period ended";
 "workoutFinished" = "Workout finished";
 
