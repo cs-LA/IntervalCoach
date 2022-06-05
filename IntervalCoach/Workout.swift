@@ -19,16 +19,24 @@ class Workout: ObservableObject {
     relaxedTimeSeconds = relaxedTime % 60
     repetitions = max(UserDefaults.standard.integer(forKey: "repetitions"), 1)
 
+    // http://www.kenaston.org/the-referee-fitness/whistle-mp3/01-whistle-captians.mp3
     let startIntensiveURL = Bundle.main.url(forResource: "whistleStartIntensive", withExtension: "mp3")
     AudioServicesCreateSystemSoundID(startIntensiveURL! as CFURL, &startIntensiveSoundID)
+    // http://www.kenaston.org/the-referee-fitness/whistle-mp3/02-whistle-kick.mp3
     let stopIntensiveURL = Bundle.main.url(forResource: "whistleStopIntensive", withExtension: "mp3")
     AudioServicesCreateSystemSoundID(stopIntensiveURL! as CFURL, &stopIntensiveSoundID)
+    // http://www.kenaston.org/the-referee-fitness/whistle-mp3/08-whistle-end-of-game.mp3
     let workoutFinishedURL = Bundle.main.url(forResource: "whistleWorkoutFinished", withExtension: "mp3")
     AudioServicesCreateSystemSoundID(workoutFinishedURL! as CFURL, &workoutFinishedSoundID)
+    // https://klingeltonmobi.de/download/?id=3568
+    let intensiveHalfSplitURL = Bundle.main.url(forResource: "intensiveHalfSplit", withExtension: "mp3")
+    AudioServicesCreateSystemSoundID(intensiveHalfSplitURL! as CFURL, &intensiveHalfSplitSoundID)
+
   }
   
   var startIntensiveSoundID = SystemSoundID(101)
   var stopIntensiveSoundID = SystemSoundID(102)
+  var intensiveHalfSplitSoundID = SystemSoundID(105)
   var workoutFinishedSoundID = SystemSoundID(109)
 
   @Published var intensiveTimeMinutes: Int
@@ -80,6 +88,12 @@ class Workout: ObservableObject {
         secondsFromNow: notificationTimeOffset
       )
 
+      scheduleBackgroundNotification(
+        body: String(format: NSLocalizedString("intensivePeriodHalfTime", comment: ""), rep),
+        sound: "intensiveHalfSplit.mp3",
+        secondsFromNow: notificationTimeOffset + intensiveTime / 2
+      )
+      
       notificationTimeOffset += intensiveTime
       scheduleBackgroundNotification(
         body: String(format: NSLocalizedString("intensivePeriodEnded", comment: ""), rep),
@@ -136,11 +150,19 @@ class Workout: ObservableObject {
     
     secondsGone += 1
     print("\(repCounter) - \(secondsGone) - \(isIntensive)")
-    if secondsGone == secondsToGo {
-      isIntensive
-      ? AudioServicesPlaySystemSound(stopIntensiveSoundID)
-      : AudioServicesPlaySystemSound(startIntensiveSoundID)
-      print("whistled")
+//    if secondsGone == secondsToGo {
+//      isIntensive
+//      ? AudioServicesPlaySystemSound(stopIntensiveSoundID)
+//      : AudioServicesPlaySystemSound(startIntensiveSoundID)
+//      print("whistled")
+//    }
+    
+    if isIntensive {
+      if secondsGone == secondsToGo / 2 { AudioServicesPlaySystemSound(intensiveHalfSplitSoundID) }
+      if secondsGone == secondsToGo { AudioServicesPlaySystemSound(stopIntensiveSoundID) }
+    }
+    else {
+      if secondsGone == secondsToGo { AudioServicesPlaySystemSound(startIntensiveSoundID) }
     }
   }
   

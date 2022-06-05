@@ -13,6 +13,7 @@
 		ABB8482627E3CFB20095EA51 /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8482527E3CFB20095EA51 /* ProgressCircle.swift */; };
 		ABB8482827E3D2F00095EA51 /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8482727E3D2F00095EA51 /* StartButton.swift */; };
 		ABB8482A27E3D32A0095EA51 /* StopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8482927E3D32A0095EA51 /* StopButton.swift */; };
+		ABB8EAA4284D16F600C1E93B /* intensiveHalfSplit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ABB8EAA3284D16F600C1E93B /* intensiveHalfSplit.mp3 */; };
 		ABBDB54427E3A2ED00C81E1B /* whistleStartIntensive.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ABBDB54327E3A2ED00C81E1B /* whistleStartIntensive.mp3 */; };
 		ABBDB54627E3A3D600C81E1B /* whistleStopIntensive.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ABBDB54527E3A3D600C81E1B /* whistleStopIntensive.mp3 */; };
 		ABBDB54827E3AD7500C81E1B /* whistleWorkoutFinished.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ABBDB54727E3AD7500C81E1B /* whistleWorkoutFinished.mp3 */; };
@@ -46,6 +47,7 @@
 		ABB8482527E3CFB20095EA51 /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircle.swift; sourceTree = "<group>"; };
 		ABB8482727E3D2F00095EA51 /* StartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
 		ABB8482927E3D32A0095EA51 /* StopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopButton.swift; sourceTree = "<group>"; };
+		ABB8EAA3284D16F600C1E93B /* intensiveHalfSplit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = intensiveHalfSplit.mp3; sourceTree = "<group>"; };
 		ABBDB54327E3A2ED00C81E1B /* whistleStartIntensive.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = whistleStartIntensive.mp3; sourceTree = "<group>"; };
 		ABBDB54527E3A3D600C81E1B /* whistleStopIntensive.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = whistleStopIntensive.mp3; sourceTree = "<group>"; };
 		ABBDB54727E3AD7500C81E1B /* whistleWorkoutFinished.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = whistleWorkoutFinished.mp3; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				ABBDB54327E3A2ED00C81E1B /* whistleStartIntensive.mp3 */,
+				ABB8EAA3284D16F600C1E93B /* intensiveHalfSplit.mp3 */,
 				ABBDB54527E3A3D600C81E1B /* whistleStopIntensive.mp3 */,
 				ABBDB54727E3AD7500C81E1B /* whistleWorkoutFinished.mp3 */,
 			);
@@ -186,6 +189,7 @@
 			files = (
 				ABBDB54827E3AD7500C81E1B /* whistleWorkoutFinished.mp3 in Resources */,
 				ABC37E9C27CD53A400568197 /* Preview Assets.xcassets in Resources */,
+				ABB8EAA4284D16F600C1E93B /* intensiveHalfSplit.mp3 in Resources */,
 				ABBDB54627E3A3D600C81E1B /* whistleStopIntensive.mp3 in Resources */,
 				AB6A210A27CD5AD500D70DC6 /* Localizable.strings in Resources */,
 				ABBDB54427E3A2ED00C81E1B /* whistleStartIntensive.mp3 in Resources */,
@@ -349,7 +353,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"IntervalCoach/Preview Content\"";
 				DEVELOPMENT_TEAM = R49U8BCC8W;
 				ENABLE_PREVIEWS = YES;
@@ -364,7 +368,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.cs-la.IntervalCoach";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -379,7 +383,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"IntervalCoach/Preview Content\"";
 				DEVELOPMENT_TEAM = R49U8BCC8W;
 				ENABLE_PREVIEWS = YES;
@@ -394,7 +398,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.cs-la.IntervalCoach";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
