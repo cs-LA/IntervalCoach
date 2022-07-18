@@ -44,7 +44,7 @@ class Workout: ObservableObject {
   @Published var relaxedTimeMinutes: Int
   @Published var relaxedTimeSeconds: Int
   @Published var repetitions: Int
-  @Published var errorMessage = ""
+  @Published var errorMessage = " \n "
 
   var timer: Cancellable? = nil
   @Published var secondsGone = 0
@@ -54,7 +54,7 @@ class Workout: ObservableObject {
 
   
   func start() {
-    errorMessage = ""
+    errorMessage = " \n "
     let intensiveTime = intensiveTimeMinutes * 60 + intensiveTimeSeconds
     let relaxedTime = relaxedTimeMinutes * 60 + relaxedTimeSeconds
     guard intensiveTime + relaxedTime > 0 else {

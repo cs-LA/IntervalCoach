@@ -15,7 +15,7 @@ struct StopButton: View {
     Button(action: { workout.stop() }) {
       Image(systemName: "stop.fill")
         .font(.system(size: 80))
-        .foregroundColor(Color(.systemOrange))
+        .foregroundColor(Color.orange)
     }
     
   }

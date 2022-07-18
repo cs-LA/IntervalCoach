@@ -12,4 +12,4 @@
 "intensivePeriodEnded" = "#%d: Intensiv-Periode beendet";
 "workoutFinished" = "Workout beendet";
 
-"zeroTimeMsg" = "Mindestens eine Zeit muss größer 0 sein!";
+"zeroTimeMsg" = "Mindestens eine Zeit\nmuss größer 0 sein!";

@@ -9,6 +9,25 @@
 /* Begin PBXBuildFile section */
 		AB2EE5B827E287ED003A4BFC /* AppInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2EE5B727E287ED003A4BFC /* AppInfos.swift */; };
 		AB2EE5BA27E289CC003A4BFC /* SetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2EE5B927E289CC003A4BFC /* SetupView.swift */; };
+		AB33551E2870A963009CDA86 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB6A210C27CD5AD500D70DC6 /* Localizable.strings */; };
+		AB33551F2870C1A6009CDA86 /* whistleStartIntensive.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ABBDB54327E3A2ED00C81E1B /* whistleStartIntensive.mp3 */; };
+		AB3355212870C8D4009CDA86 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3355202870C8D4009CDA86 /* MainScreen.swift */; };
+		AB3355232870CC8B009CDA86 /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3355222870CC8B009CDA86 /* ExerciseView.swift */; };
+		AB341E322853780F00BE09BE /* IntervalCoachWatch WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = AB341E312853780F00BE09BE /* IntervalCoachWatch WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AB341E372853781400BE09BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB341E362853781400BE09BE /* Assets.xcassets */; };
+		AB341E3D2853781400BE09BE /* IntervalCoachWatch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AB341E3C2853781400BE09BE /* IntervalCoachWatch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AB341E422853781400BE09BE /* IntervalCoachApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB341E412853781400BE09BE /* IntervalCoachApp.swift */; };
+		AB341E462853781400BE09BE /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB341E452853781400BE09BE /* NotificationController.swift */; };
+		AB341E482853781400BE09BE /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB341E472853781400BE09BE /* NotificationView.swift */; };
+		AB341E4A2853781400BE09BE /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB341E492853781400BE09BE /* ComplicationController.swift */; };
+		AB341E4C2853781800BE09BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB341E4B2853781800BE09BE /* Assets.xcassets */; };
+		AB341E4F2853781800BE09BE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB341E4E2853781800BE09BE /* Preview Assets.xcassets */; };
+		AB341E5F28537DB900BE09BE /* AppInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2EE5B727E287ED003A4BFC /* AppInfos.swift */; };
+		AB341E6128537DC900BE09BE /* StopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8482927E3D32A0095EA51 /* StopButton.swift */; };
+		AB341E6228537DC900BE09BE /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8482727E3D2F00095EA51 /* StartButton.swift */; };
+		AB341E6328537DC900BE09BE /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8482527E3CFB20095EA51 /* ProgressCircle.swift */; };
+		AB341E6528537EEB00BE09BE /* SetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB341E6428537EEB00BE09BE /* SetupView.swift */; };
+		AB341E6728537FF600BE09BE /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB341E6628537FF600BE09BE /* Workout.swift */; };
 		AB6A210A27CD5AD500D70DC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB6A210C27CD5AD500D70DC6 /* Localizable.strings */; };
 		ABB8482627E3CFB20095EA51 /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8482527E3CFB20095EA51 /* ProgressCircle.swift */; };
 		ABB8482827E3D2F00095EA51 /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8482727E3D2F00095EA51 /* StartButton.swift */; };
@@ -25,7 +44,46 @@
 		ABC37EA527CD547F00568197 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC37EA427CD547F00568197 /* Workout.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		AB341E332853780F00BE09BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ABC37E8927CD53A000568197 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AB341E302853780F00BE09BE;
+			remoteInfo = "IntervalCoachWatch WatchKit App";
+		};
+		AB341E3E2853781400BE09BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ABC37E8927CD53A000568197 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AB341E3B2853781400BE09BE;
+			remoteInfo = "IntervalCoachWatch WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
+		AB341E542853781800BE09BE /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				AB341E322853780F00BE09BE /* IntervalCoachWatch WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB341E572853781800BE09BE /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				AB341E3D2853781400BE09BE /* IntervalCoachWatch WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AB4EEF4027D7A164000377C2 /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -41,6 +99,22 @@
 /* Begin PBXFileReference section */
 		AB2EE5B727E287ED003A4BFC /* AppInfos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfos.swift; sourceTree = "<group>"; };
 		AB2EE5B927E289CC003A4BFC /* SetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupView.swift; sourceTree = "<group>"; };
+		AB3355202870C8D4009CDA86 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
+		AB3355222870CC8B009CDA86 /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
+		AB341E2E2853780F00BE09BE /* IntervalCoachWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntervalCoachWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB341E312853780F00BE09BE /* IntervalCoachWatch WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IntervalCoachWatch WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB341E362853781400BE09BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AB341E3C2853781400BE09BE /* IntervalCoachWatch WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "IntervalCoachWatch WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB341E412853781400BE09BE /* IntervalCoachApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalCoachApp.swift; sourceTree = "<group>"; };
+		AB341E452853781400BE09BE /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		AB341E472853781400BE09BE /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		AB341E492853781400BE09BE /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		AB341E4B2853781800BE09BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AB341E4E2853781800BE09BE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AB341E502853781800BE09BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB341E512853781800BE09BE /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		AB341E6428537EEB00BE09BE /* SetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupView.swift; sourceTree = "<group>"; };
+		AB341E6628537FF600BE09BE /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		AB6A210B27CD5AD500D70DC6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AB6A210D27CD5AD800D70DC6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AB8E42B927D563EA0004E940 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -61,6 +135,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AB341E392853781400BE09BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ABC37E8E27CD53A000568197 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -71,6 +152,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB341E352853780F00BE09BE /* IntervalCoachWatch WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				AB341E362853781400BE09BE /* Assets.xcassets */,
+			);
+			path = "IntervalCoachWatch WatchKit App";
+			sourceTree = "<group>";
+		};
+		AB341E402853781400BE09BE /* IntervalCoachWatch WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				AB341E412853781400BE09BE /* IntervalCoachApp.swift */,
+				AB341E6628537FF600BE09BE /* Workout.swift */,
+				AB3355202870C8D4009CDA86 /* MainScreen.swift */,
+				AB341E6428537EEB00BE09BE /* SetupView.swift */,
+				AB3355222870CC8B009CDA86 /* ExerciseView.swift */,
+				AB341E452853781400BE09BE /* NotificationController.swift */,
+				AB341E472853781400BE09BE /* NotificationView.swift */,
+				AB341E492853781400BE09BE /* ComplicationController.swift */,
+				AB341E4B2853781800BE09BE /* Assets.xcassets */,
+				AB341E502853781800BE09BE /* Info.plist */,
+				AB341E512853781800BE09BE /* PushNotificationPayload.apns */,
+				AB341E4D2853781800BE09BE /* Preview Content */,
+			);
+			path = "IntervalCoachWatch WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		AB341E4D2853781800BE09BE /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				AB341E4E2853781800BE09BE /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		ABBDB54227E3A04000C81E1B /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +202,8 @@
 			isa = PBXGroup;
 			children = (
 				ABC37E9327CD53A000568197 /* IntervalCoach */,
+				AB341E352853780F00BE09BE /* IntervalCoachWatch WatchKit App */,
+				AB341E402853781400BE09BE /* IntervalCoachWatch WatchKit Extension */,
 				ABC37E9227CD53A000568197 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,6 +212,9 @@
 			isa = PBXGroup;
 			children = (
 				ABC37E9127CD53A000568197 /* IntervalCoach.app */,
+				AB341E2E2853780F00BE09BE /* IntervalCoachWatch.app */,
+				AB341E312853780F00BE09BE /* IntervalCoachWatch WatchKit App.app */,
+				AB341E3C2853781400BE09BE /* IntervalCoachWatch WatchKit Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,6 +251,57 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AB341E2D2853780F00BE09BE /* IntervalCoachWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB341E5C2853781800BE09BE /* Build configuration list for PBXNativeTarget "IntervalCoachWatch" */;
+			buildPhases = (
+				AB341E2C2853780F00BE09BE /* Resources */,
+				AB341E542853781800BE09BE /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AB341E342853780F00BE09BE /* PBXTargetDependency */,
+			);
+			name = IntervalCoachWatch;
+			productName = IntervalCoachWatch;
+			productReference = AB341E2E2853780F00BE09BE /* IntervalCoachWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
+		AB341E302853780F00BE09BE /* IntervalCoachWatch WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB341E5B2853781800BE09BE /* Build configuration list for PBXNativeTarget "IntervalCoachWatch WatchKit App" */;
+			buildPhases = (
+				AB341E2F2853780F00BE09BE /* Resources */,
+				AB341E572853781800BE09BE /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AB341E3F2853781400BE09BE /* PBXTargetDependency */,
+			);
+			name = "IntervalCoachWatch WatchKit App";
+			productName = "IntervalCoachWatch WatchKit App";
+			productReference = AB341E312853780F00BE09BE /* IntervalCoachWatch WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		AB341E3B2853781400BE09BE /* IntervalCoachWatch WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB341E5A2853781800BE09BE /* Build configuration list for PBXNativeTarget "IntervalCoachWatch WatchKit Extension" */;
+			buildPhases = (
+				AB341E382853781400BE09BE /* Sources */,
+				AB341E392853781400BE09BE /* Frameworks */,
+				AB341E3A2853781400BE09BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "IntervalCoachWatch WatchKit Extension";
+			productName = "IntervalCoachWatch WatchKit Extension";
+			productReference = AB341E3C2853781400BE09BE /* IntervalCoachWatch WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		ABC37E9027CD53A000568197 /* IntervalCoach */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = ABC37E9F27CD53A400568197 /* Build configuration list for PBXNativeTarget "IntervalCoach" */;
@@ -158,6 +330,15 @@
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
+					AB341E2D2853780F00BE09BE = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					AB341E302853780F00BE09BE = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					AB341E3B2853781400BE09BE = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
 					ABC37E9027CD53A000568197 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
@@ -178,11 +359,40 @@
 			projectRoot = "";
 			targets = (
 				ABC37E9027CD53A000568197 /* IntervalCoach */,
+				AB341E2D2853780F00BE09BE /* IntervalCoachWatch */,
+				AB341E302853780F00BE09BE /* IntervalCoachWatch WatchKit App */,
+				AB341E3B2853781400BE09BE /* IntervalCoachWatch WatchKit Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AB341E2C2853780F00BE09BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB341E2F2853780F00BE09BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB341E372853781400BE09BE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB341E3A2853781400BE09BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB341E4F2853781800BE09BE /* Preview Assets.xcassets in Resources */,
+				AB33551E2870A963009CDA86 /* Localizable.strings in Resources */,
+				AB33551F2870C1A6009CDA86 /* whistleStartIntensive.mp3 in Resources */,
+				AB341E4C2853781800BE09BE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ABC37E8F27CD53A000568197 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -200,6 +410,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AB341E382853781400BE09BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB341E462853781400BE09BE /* NotificationController.swift in Sources */,
+				AB341E6128537DC900BE09BE /* StopButton.swift in Sources */,
+				AB341E5F28537DB900BE09BE /* AppInfos.swift in Sources */,
+				AB341E6228537DC900BE09BE /* StartButton.swift in Sources */,
+				AB3355212870C8D4009CDA86 /* MainScreen.swift in Sources */,
+				AB341E4A2853781400BE09BE /* ComplicationController.swift in Sources */,
+				AB341E422853781400BE09BE /* IntervalCoachApp.swift in Sources */,
+				AB341E6328537DC900BE09BE /* ProgressCircle.swift in Sources */,
+				AB341E6528537EEB00BE09BE /* SetupView.swift in Sources */,
+				AB341E482853781400BE09BE /* NotificationView.swift in Sources */,
+				AB3355232870CC8B009CDA86 /* ExerciseView.swift in Sources */,
+				AB341E6728537FF600BE09BE /* Workout.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ABC37E8D27CD53A000568197 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -218,6 +447,19 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		AB341E342853780F00BE09BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AB341E302853780F00BE09BE /* IntervalCoachWatch WatchKit App */;
+			targetProxy = AB341E332853780F00BE09BE /* PBXContainerItemProxy */;
+		};
+		AB341E3F2853781400BE09BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AB341E3B2853781400BE09BE /* IntervalCoachWatch WatchKit Extension */;
+			targetProxy = AB341E3E2853781400BE09BE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		AB6A210C27CD5AD500D70DC6 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
@@ -231,6 +473,146 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		AB341E522853781800BE09BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R49U8BCC8W;
+				MARKETING_VERSION = 1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.cs-la.IntervalCoachWatch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		AB341E532853781800BE09BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R49U8BCC8W;
+				MARKETING_VERSION = 1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.cs-la.IntervalCoachWatch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		AB341E552853781800BE09BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R49U8BCC8W;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = IntervalCoachWatch_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = "IntervalCoachWatch WatchKit App";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				MARKETING_VERSION = 1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.cs-la.IntervalCoachWatch.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.3;
+			};
+			name = Debug;
+		};
+		AB341E562853781800BE09BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R49U8BCC8W;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = IntervalCoachWatch_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = "IntervalCoachWatch WatchKit App";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				MARKETING_VERSION = 1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.cs-la.IntervalCoachWatch.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.3;
+			};
+			name = Release;
+		};
+		AB341E582853781800BE09BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"IntervalCoachWatch WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = R49U8BCC8W;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "IntervalCoachWatch WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "IntervalCoachWatch WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = IntervalCoachWatch_WatchKit_Extension.ComplicationController;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.cs-la.IntervalCoachWatch.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.3;
+			};
+			name = Debug;
+		};
+		AB341E592853781800BE09BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"IntervalCoachWatch WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = R49U8BCC8W;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "IntervalCoachWatch WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "IntervalCoachWatch WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = IntervalCoachWatch_WatchKit_Extension.ComplicationController;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.cs-la.IntervalCoachWatch.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.3;
+			};
+			name = Release;
+		};
 		ABC37E9D27CD53A400568197 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -368,7 +750,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.cs-la.IntervalCoach";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -398,7 +780,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.cs-la.IntervalCoach";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -410,6 +792,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AB341E5A2853781800BE09BE /* Build configuration list for PBXNativeTarget "IntervalCoachWatch WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB341E582853781800BE09BE /* Debug */,
+				AB341E592853781800BE09BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB341E5B2853781800BE09BE /* Build configuration list for PBXNativeTarget "IntervalCoachWatch WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB341E552853781800BE09BE /* Debug */,
+				AB341E562853781800BE09BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB341E5C2853781800BE09BE /* Build configuration list for PBXNativeTarget "IntervalCoachWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB341E522853781800BE09BE /* Debug */,
+				AB341E532853781800BE09BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		ABC37E8C27CD53A000568197 /* Build configuration list for PBXProject "IntervalCoach" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

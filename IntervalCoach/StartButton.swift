@@ -16,7 +16,7 @@ struct StartButton: View {
     Button(action: { workout.start() }) {
       Image(systemName: "play.fill")
         .font(.system(size: 80))
-        .foregroundColor(Color(.systemOrange))
+        .foregroundColor(Color.orange)
     }
     
   }
