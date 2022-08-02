@@ -5,7 +5,6 @@
 import Foundation
 import Combine
 import SwiftUI
-//import AVFoundation
 
 
 class Workout: ObservableObject {
@@ -34,6 +33,7 @@ class Workout: ObservableObject {
   var repCounter = 0
   var isIntensive = false
   
+  var xRtSession: WKExtendedRuntimeSession? = nil
   
   func start() {
     errorMessage = " \n "
@@ -60,7 +60,9 @@ class Workout: ObservableObject {
       .sink { [self] _ in
         update()
       }
-    
+
+    xRtSession = WKExtendedRuntimeSession()
+    xRtSession?.start()
   }
   
   
@@ -86,6 +88,7 @@ class Workout: ObservableObject {
       if repCounter > Int(repetitions) {
         //AudioServicesPlaySystemSound(workoutFinishedSoundID)
         WKInterfaceDevice.current().play(.success)
+        //xRtSession.notifyUser(hapticType: .success, repeatHandler: nil)
         stop()
         return
       }
@@ -115,20 +118,25 @@ class Workout: ObservableObject {
     if isIntensive {
       if secondsGone == secondsToGo / 2 { //AudioServicesPlaySystemSound(intensiveHalfSplitSoundID)
         WKInterfaceDevice.current().play(.retry)
+        //xRtSession.notifyUser(hapticType: .retry, repeatHandler: nil)
       }
       if secondsGone == secondsToGo { //AudioServicesPlaySystemSound(stopIntensiveSoundID)
         WKInterfaceDevice.current().play(.stop)
+        //xRtSession.notifyUser(hapticType: .stop, repeatHandler: nil)
       }
     }
     else {
       if secondsGone == secondsToGo { //AudioServicesPlaySystemSound(startIntensiveSoundID)
         WKInterfaceDevice.current().play(.start)
+        //xRtSession.notifyUser(hapticType: .start, repeatHandler: nil)
       }
     }
   }
   
   
   func stop() {
+    xRtSession?.invalidate()
+    xRtSession = nil
     timer?.cancel()
     timer = nil
     
