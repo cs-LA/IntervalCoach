@@ -7,12 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB116E3E289C03A500B6D7D9 /* AlarmHalfSplit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB116E3D289C03A500B6D7D9 /* AlarmHalfSplit.swift */; };
+		AB116E40289C046300B6D7D9 /* AlarmFinished.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB116E3F289C046300B6D7D9 /* AlarmFinished.swift */; };
+		AB116E44289C143700B6D7D9 /* BackgroundManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB116E43289C143700B6D7D9 /* BackgroundManagerProtocol.swift */; };
+		AB116E46289C14A200B6D7D9 /* BackgroundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB116E45289C14A200B6D7D9 /* BackgroundManager.swift */; };
+		AB116E47289C151000B6D7D9 /* BackgroundManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB116E43289C143700B6D7D9 /* BackgroundManagerProtocol.swift */; };
+		AB116E49289C156F00B6D7D9 /* BackgroundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB116E48289C156F00B6D7D9 /* BackgroundManager.swift */; };
+		AB116E4A289C213B00B6D7D9 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC37EA427CD547F00568197 /* Workout.swift */; };
+		AB116E4C289C21FF00B6D7D9 /* AlarmHalfSplit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB116E4B289C21FE00B6D7D9 /* AlarmHalfSplit.swift */; };
+		AB116E4E289C222700B6D7D9 /* AlarmFinished.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB116E4D289C222700B6D7D9 /* AlarmFinished.swift */; };
+		AB116E4F289C379A00B6D7D9 /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBDB54B27E3BBE900C81E1B /* ExerciseView.swift */; };
 		AB2EE5B827E287ED003A4BFC /* AppInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2EE5B727E287ED003A4BFC /* AppInfos.swift */; };
 		AB2EE5BA27E289CC003A4BFC /* SetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2EE5B927E289CC003A4BFC /* SetupView.swift */; };
 		AB33551E2870A963009CDA86 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB6A210C27CD5AD500D70DC6 /* Localizable.strings */; };
-		AB33551F2870C1A6009CDA86 /* whistleStartIntensive.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ABBDB54327E3A2ED00C81E1B /* whistleStartIntensive.mp3 */; };
+		AB33551F2870C1A6009CDA86 /* intensiveStart.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ABBDB54327E3A2ED00C81E1B /* intensiveStart.mp3 */; };
 		AB3355212870C8D4009CDA86 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3355202870C8D4009CDA86 /* MainScreen.swift */; };
-		AB3355232870CC8B009CDA86 /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3355222870CC8B009CDA86 /* ExerciseView.swift */; };
 		AB341E322853780F00BE09BE /* IntervalCoachWatch WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = AB341E312853780F00BE09BE /* IntervalCoachWatch WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AB341E372853781400BE09BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB341E362853781400BE09BE /* Assets.xcassets */; };
 		AB341E3D2853781400BE09BE /* IntervalCoachWatch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AB341E3C2853781400BE09BE /* IntervalCoachWatch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -23,19 +32,22 @@
 		AB341E4C2853781800BE09BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB341E4B2853781800BE09BE /* Assets.xcassets */; };
 		AB341E4F2853781800BE09BE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB341E4E2853781800BE09BE /* Preview Assets.xcassets */; };
 		AB341E5F28537DB900BE09BE /* AppInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2EE5B727E287ED003A4BFC /* AppInfos.swift */; };
-		AB341E6128537DC900BE09BE /* StopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8482927E3D32A0095EA51 /* StopButton.swift */; };
-		AB341E6228537DC900BE09BE /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8482727E3D2F00095EA51 /* StartButton.swift */; };
 		AB341E6328537DC900BE09BE /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8482527E3CFB20095EA51 /* ProgressCircle.swift */; };
 		AB341E6528537EEB00BE09BE /* SetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB341E6428537EEB00BE09BE /* SetupView.swift */; };
-		AB341E6728537FF600BE09BE /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB341E6628537FF600BE09BE /* Workout.swift */; };
+		AB441AD5289B02D700B235F1 /* AlarmProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB441AD4289B02D700B235F1 /* AlarmProtocol.swift */; };
+		AB441AD7289B035A00B235F1 /* AlarmStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB441AD6289B035A00B235F1 /* AlarmStart.swift */; };
+		AB441AD9289B040700B235F1 /* AlarmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB441AD8289B040700B235F1 /* AlarmManager.swift */; };
+		AB441ADA289B04F100B235F1 /* AlarmProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB441AD4289B02D700B235F1 /* AlarmProtocol.swift */; };
+		AB441ADB289B054400B235F1 /* AlarmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB441AD8289B040700B235F1 /* AlarmManager.swift */; };
+		AB441ADD289B068B00B235F1 /* AlarmStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB441ADC289B068B00B235F1 /* AlarmStop.swift */; };
+		AB441ADF289B06F700B235F1 /* AlarmStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB441ADE289B06F700B235F1 /* AlarmStart.swift */; };
+		AB441AE1289B0B5000B235F1 /* AlarmStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB441AE0289B0B5000B235F1 /* AlarmStop.swift */; };
 		AB6A210A27CD5AD500D70DC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB6A210C27CD5AD500D70DC6 /* Localizable.strings */; };
 		ABB8482627E3CFB20095EA51 /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8482527E3CFB20095EA51 /* ProgressCircle.swift */; };
-		ABB8482827E3D2F00095EA51 /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8482727E3D2F00095EA51 /* StartButton.swift */; };
-		ABB8482A27E3D32A0095EA51 /* StopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8482927E3D32A0095EA51 /* StopButton.swift */; };
 		ABB8EAA4284D16F600C1E93B /* intensiveHalfSplit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ABB8EAA3284D16F600C1E93B /* intensiveHalfSplit.mp3 */; };
-		ABBDB54427E3A2ED00C81E1B /* whistleStartIntensive.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ABBDB54327E3A2ED00C81E1B /* whistleStartIntensive.mp3 */; };
-		ABBDB54627E3A3D600C81E1B /* whistleStopIntensive.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ABBDB54527E3A3D600C81E1B /* whistleStopIntensive.mp3 */; };
-		ABBDB54827E3AD7500C81E1B /* whistleWorkoutFinished.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ABBDB54727E3AD7500C81E1B /* whistleWorkoutFinished.mp3 */; };
+		ABBDB54427E3A2ED00C81E1B /* intensiveStart.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ABBDB54327E3A2ED00C81E1B /* intensiveStart.mp3 */; };
+		ABBDB54627E3A3D600C81E1B /* intensiveStop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ABBDB54527E3A3D600C81E1B /* intensiveStop.mp3 */; };
+		ABBDB54827E3AD7500C81E1B /* workoutFinished.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ABBDB54727E3AD7500C81E1B /* workoutFinished.mp3 */; };
 		ABBDB54C27E3BBE900C81E1B /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBDB54B27E3BBE900C81E1B /* ExerciseView.swift */; };
 		ABC37E9527CD53A000568197 /* IntervalCoachApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC37E9427CD53A000568197 /* IntervalCoachApp.swift */; };
 		ABC37E9927CD53A400568197 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABC37E9827CD53A400568197 /* Assets.xcassets */; };
@@ -97,10 +109,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AB116E3D289C03A500B6D7D9 /* AlarmHalfSplit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmHalfSplit.swift; sourceTree = "<group>"; };
+		AB116E3F289C046300B6D7D9 /* AlarmFinished.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmFinished.swift; sourceTree = "<group>"; };
+		AB116E43289C143700B6D7D9 /* BackgroundManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundManagerProtocol.swift; sourceTree = "<group>"; };
+		AB116E45289C14A200B6D7D9 /* BackgroundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundManager.swift; sourceTree = "<group>"; };
+		AB116E48289C156F00B6D7D9 /* BackgroundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundManager.swift; sourceTree = "<group>"; };
+		AB116E4B289C21FE00B6D7D9 /* AlarmHalfSplit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmHalfSplit.swift; sourceTree = "<group>"; };
+		AB116E4D289C222700B6D7D9 /* AlarmFinished.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmFinished.swift; sourceTree = "<group>"; };
 		AB2EE5B727E287ED003A4BFC /* AppInfos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfos.swift; sourceTree = "<group>"; };
 		AB2EE5B927E289CC003A4BFC /* SetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupView.swift; sourceTree = "<group>"; };
 		AB3355202870C8D4009CDA86 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
-		AB3355222870CC8B009CDA86 /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
 		AB341E2E2853780F00BE09BE /* IntervalCoachWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntervalCoachWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB341E312853780F00BE09BE /* IntervalCoachWatch WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IntervalCoachWatch WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB341E362853781400BE09BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -114,17 +132,20 @@
 		AB341E502853781800BE09BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB341E512853781800BE09BE /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		AB341E6428537EEB00BE09BE /* SetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupView.swift; sourceTree = "<group>"; };
-		AB341E6628537FF600BE09BE /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		AB441AD4289B02D700B235F1 /* AlarmProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmProtocol.swift; sourceTree = "<group>"; };
+		AB441AD6289B035A00B235F1 /* AlarmStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmStart.swift; sourceTree = "<group>"; };
+		AB441AD8289B040700B235F1 /* AlarmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmManager.swift; sourceTree = "<group>"; };
+		AB441ADC289B068B00B235F1 /* AlarmStop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmStop.swift; sourceTree = "<group>"; };
+		AB441ADE289B06F700B235F1 /* AlarmStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmStart.swift; sourceTree = "<group>"; };
+		AB441AE0289B0B5000B235F1 /* AlarmStop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmStop.swift; sourceTree = "<group>"; };
 		AB6A210B27CD5AD500D70DC6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AB6A210D27CD5AD800D70DC6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AB8E42B927D563EA0004E940 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		ABB8482527E3CFB20095EA51 /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircle.swift; sourceTree = "<group>"; };
-		ABB8482727E3D2F00095EA51 /* StartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
-		ABB8482927E3D32A0095EA51 /* StopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopButton.swift; sourceTree = "<group>"; };
 		ABB8EAA3284D16F600C1E93B /* intensiveHalfSplit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = intensiveHalfSplit.mp3; sourceTree = "<group>"; };
-		ABBDB54327E3A2ED00C81E1B /* whistleStartIntensive.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = whistleStartIntensive.mp3; sourceTree = "<group>"; };
-		ABBDB54527E3A3D600C81E1B /* whistleStopIntensive.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = whistleStopIntensive.mp3; sourceTree = "<group>"; };
-		ABBDB54727E3AD7500C81E1B /* whistleWorkoutFinished.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = whistleWorkoutFinished.mp3; sourceTree = "<group>"; };
+		ABBDB54327E3A2ED00C81E1B /* intensiveStart.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = intensiveStart.mp3; sourceTree = "<group>"; };
+		ABBDB54527E3A3D600C81E1B /* intensiveStop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = intensiveStop.mp3; sourceTree = "<group>"; };
+		ABBDB54727E3AD7500C81E1B /* workoutFinished.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = workoutFinished.mp3; sourceTree = "<group>"; };
 		ABBDB54B27E3BBE900C81E1B /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
 		ABC37E9127CD53A000568197 /* IntervalCoach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntervalCoach.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABC37E9427CD53A000568197 /* IntervalCoachApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalCoachApp.swift; sourceTree = "<group>"; };
@@ -164,10 +185,13 @@
 			isa = PBXGroup;
 			children = (
 				AB341E412853781400BE09BE /* IntervalCoachApp.swift */,
-				AB341E6628537FF600BE09BE /* Workout.swift */,
 				AB3355202870C8D4009CDA86 /* MainScreen.swift */,
 				AB341E6428537EEB00BE09BE /* SetupView.swift */,
-				AB3355222870CC8B009CDA86 /* ExerciseView.swift */,
+				AB116E45289C14A200B6D7D9 /* BackgroundManager.swift */,
+				AB441AD6289B035A00B235F1 /* AlarmStart.swift */,
+				AB116E4B289C21FE00B6D7D9 /* AlarmHalfSplit.swift */,
+				AB441ADC289B068B00B235F1 /* AlarmStop.swift */,
+				AB116E4D289C222700B6D7D9 /* AlarmFinished.swift */,
 				AB341E492853781400BE09BE /* ComplicationController.swift */,
 				AB341E452853781400BE09BE /* NotificationController.swift */,
 				AB341E472853781400BE09BE /* NotificationView.swift */,
@@ -190,10 +214,10 @@
 		ABBDB54227E3A04000C81E1B /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				ABBDB54327E3A2ED00C81E1B /* whistleStartIntensive.mp3 */,
+				ABBDB54327E3A2ED00C81E1B /* intensiveStart.mp3 */,
 				ABB8EAA3284D16F600C1E93B /* intensiveHalfSplit.mp3 */,
-				ABBDB54527E3A3D600C81E1B /* whistleStopIntensive.mp3 */,
-				ABBDB54727E3AD7500C81E1B /* whistleWorkoutFinished.mp3 */,
+				ABBDB54527E3A3D600C81E1B /* intensiveStop.mp3 */,
+				ABBDB54727E3AD7500C81E1B /* workoutFinished.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -201,9 +225,16 @@
 		ABC37E8827CD53A000568197 = {
 			isa = PBXGroup;
 			children = (
+				AB441AD4289B02D700B235F1 /* AlarmProtocol.swift */,
+				AB441AD8289B040700B235F1 /* AlarmManager.swift */,
+				AB2EE5B727E287ED003A4BFC /* AppInfos.swift */,
+				AB116E43289C143700B6D7D9 /* BackgroundManagerProtocol.swift */,
+				ABC37EA427CD547F00568197 /* Workout.swift */,
+				ABBDB54B27E3BBE900C81E1B /* ExerciseView.swift */,
+				ABB8482527E3CFB20095EA51 /* ProgressCircle.swift */,
 				ABC37E9327CD53A000568197 /* IntervalCoach */,
-				AB341E352853780F00BE09BE /* IntervalCoachWatch WatchKit App */,
 				AB341E402853781400BE09BE /* IntervalCoachWatch WatchKit Extension */,
+				AB341E352853780F00BE09BE /* IntervalCoachWatch WatchKit App */,
 				ABC37E9227CD53A000568197 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -223,14 +254,13 @@
 			isa = PBXGroup;
 			children = (
 				ABC37E9427CD53A000568197 /* IntervalCoachApp.swift */,
-				AB2EE5B727E287ED003A4BFC /* AppInfos.swift */,
 				ABC37EA227CD543F00568197 /* MainScreen.swift */,
-				ABC37EA427CD547F00568197 /* Workout.swift */,
 				AB2EE5B927E289CC003A4BFC /* SetupView.swift */,
-				ABBDB54B27E3BBE900C81E1B /* ExerciseView.swift */,
-				ABB8482727E3D2F00095EA51 /* StartButton.swift */,
-				ABB8482927E3D32A0095EA51 /* StopButton.swift */,
-				ABB8482527E3CFB20095EA51 /* ProgressCircle.swift */,
+				AB116E48289C156F00B6D7D9 /* BackgroundManager.swift */,
+				AB441ADE289B06F700B235F1 /* AlarmStart.swift */,
+				AB116E3D289C03A500B6D7D9 /* AlarmHalfSplit.swift */,
+				AB441AE0289B0B5000B235F1 /* AlarmStop.swift */,
+				AB116E3F289C046300B6D7D9 /* AlarmFinished.swift */,
 				ABBDB54227E3A04000C81E1B /* Sounds */,
 				AB8E42B927D563EA0004E940 /* Info.plist */,
 				AB6A210C27CD5AD500D70DC6 /* Localizable.strings */,
@@ -388,7 +418,7 @@
 			files = (
 				AB341E4F2853781800BE09BE /* Preview Assets.xcassets in Resources */,
 				AB33551E2870A963009CDA86 /* Localizable.strings in Resources */,
-				AB33551F2870C1A6009CDA86 /* whistleStartIntensive.mp3 in Resources */,
+				AB33551F2870C1A6009CDA86 /* intensiveStart.mp3 in Resources */,
 				AB341E4C2853781800BE09BE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,12 +427,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABBDB54827E3AD7500C81E1B /* whistleWorkoutFinished.mp3 in Resources */,
+				ABBDB54827E3AD7500C81E1B /* workoutFinished.mp3 in Resources */,
 				ABC37E9C27CD53A400568197 /* Preview Assets.xcassets in Resources */,
 				ABB8EAA4284D16F600C1E93B /* intensiveHalfSplit.mp3 in Resources */,
-				ABBDB54627E3A3D600C81E1B /* whistleStopIntensive.mp3 in Resources */,
+				ABBDB54627E3A3D600C81E1B /* intensiveStop.mp3 in Resources */,
 				AB6A210A27CD5AD500D70DC6 /* Localizable.strings in Resources */,
-				ABBDB54427E3A2ED00C81E1B /* whistleStartIntensive.mp3 in Resources */,
+				ABBDB54427E3A2ED00C81E1B /* intensiveStart.mp3 in Resources */,
 				ABC37E9927CD53A400568197 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,18 +444,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB116E46289C14A200B6D7D9 /* BackgroundManager.swift in Sources */,
 				AB341E462853781400BE09BE /* NotificationController.swift in Sources */,
-				AB341E6128537DC900BE09BE /* StopButton.swift in Sources */,
+				AB441AD7289B035A00B235F1 /* AlarmStart.swift in Sources */,
 				AB341E5F28537DB900BE09BE /* AppInfos.swift in Sources */,
-				AB341E6228537DC900BE09BE /* StartButton.swift in Sources */,
 				AB3355212870C8D4009CDA86 /* MainScreen.swift in Sources */,
+				AB116E4C289C21FF00B6D7D9 /* AlarmHalfSplit.swift in Sources */,
 				AB341E4A2853781400BE09BE /* ComplicationController.swift in Sources */,
 				AB341E422853781400BE09BE /* IntervalCoachApp.swift in Sources */,
+				AB441AD5289B02D700B235F1 /* AlarmProtocol.swift in Sources */,
 				AB341E6328537DC900BE09BE /* ProgressCircle.swift in Sources */,
+				AB116E47289C151000B6D7D9 /* BackgroundManagerProtocol.swift in Sources */,
+				AB116E4E289C222700B6D7D9 /* AlarmFinished.swift in Sources */,
+				AB116E4F289C379A00B6D7D9 /* ExerciseView.swift in Sources */,
 				AB341E6528537EEB00BE09BE /* SetupView.swift in Sources */,
 				AB341E482853781400BE09BE /* NotificationView.swift in Sources */,
-				AB3355232870CC8B009CDA86 /* ExerciseView.swift in Sources */,
-				AB341E6728537FF600BE09BE /* Workout.swift in Sources */,
+				AB441ADD289B068B00B235F1 /* AlarmStop.swift in Sources */,
+				AB116E4A289C213B00B6D7D9 /* Workout.swift in Sources */,
+				AB441AD9289B040700B235F1 /* AlarmManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,14 +470,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABC37EA327CD543F00568197 /* MainScreen.swift in Sources */,
-				ABB8482A27E3D32A0095EA51 /* StopButton.swift in Sources */,
 				AB2EE5B827E287ED003A4BFC /* AppInfos.swift in Sources */,
 				ABBDB54C27E3BBE900C81E1B /* ExerciseView.swift in Sources */,
 				ABC37E9527CD53A000568197 /* IntervalCoachApp.swift in Sources */,
 				ABB8482627E3CFB20095EA51 /* ProgressCircle.swift in Sources */,
-				ABB8482827E3D2F00095EA51 /* StartButton.swift in Sources */,
 				AB2EE5BA27E289CC003A4BFC /* SetupView.swift in Sources */,
+				AB116E40289C046300B6D7D9 /* AlarmFinished.swift in Sources */,
 				ABC37EA527CD547F00568197 /* Workout.swift in Sources */,
+				AB441ADB289B054400B235F1 /* AlarmManager.swift in Sources */,
+				AB441ADF289B06F700B235F1 /* AlarmStart.swift in Sources */,
+				AB441ADA289B04F100B235F1 /* AlarmProtocol.swift in Sources */,
+				AB441AE1289B0B5000B235F1 /* AlarmStop.swift in Sources */,
+				AB116E49289C156F00B6D7D9 /* BackgroundManager.swift in Sources */,
+				AB116E3E289C03A500B6D7D9 /* AlarmHalfSplit.swift in Sources */,
+				AB116E44289C143700B6D7D9 /* BackgroundManagerProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,7 +521,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R49U8BCC8W;
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.cs-la.IntervalCoachWatch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -492,7 +534,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R49U8BCC8W;
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.cs-la.IntervalCoachWatch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -512,7 +554,7 @@
 				IBSC_MODULE = IntervalCoachWatch_WatchKit_Extension;
 				INFOPLIST_KEY_CFBundleDisplayName = "IntervalCoachWatch WatchKit App";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.cs-la.IntervalCoachWatch.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -537,7 +579,7 @@
 				IBSC_MODULE = IntervalCoachWatch_WatchKit_Extension;
 				INFOPLIST_KEY_CFBundleDisplayName = "IntervalCoachWatch WatchKit App";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.cs-la.IntervalCoachWatch.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -569,7 +611,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.cs-la.IntervalCoachWatch.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -601,7 +643,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.cs-la.IntervalCoachWatch.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -750,7 +792,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.cs-la.IntervalCoach";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -780,7 +822,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.cs-la.IntervalCoach";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
