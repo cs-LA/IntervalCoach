@@ -9,7 +9,8 @@ import SwiftUI
 @main
 struct IntervalCoachApp: App {
   
-  let workout = Workout()
+  let workout = Workout(backGroundManager: BackgroundManager())
+  
   @Environment(\.scenePhase) var scenePhase
 
   var body: some Scene {
@@ -20,12 +21,7 @@ struct IntervalCoachApp: App {
       switch newScenePhase {
         case .active:
           if workout.timer == nil { print("No workout session active.") }
-          else {
-            print(workout.xRtSession?.expirationDate as Any)
-            workout.xRtSession?.invalidate()
-            workout.xRtSession = WKExtendedRuntimeSession()
-            workout.xRtSession?.start()
-          }
+          else { workout.bgMgr.enableBackgroundProcessing(nil) }
         case .inactive:
           print("App is inactive")
         case .background:
@@ -36,13 +32,4 @@ struct IntervalCoachApp: App {
     }
   }
 
-//    @SceneBuilder var body: some Scene {
-//        WindowGroup {
-//            NavigationView {
-//                ContentView()
-//            }
-//        }
-
-//        WKNotificationScene(controller: NotificationController.self, category: "myCategory")
-//    }
 }

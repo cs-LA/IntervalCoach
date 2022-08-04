@@ -18,11 +18,11 @@ struct MainScreen: View {
   private let intensiveColor = Color.red
   private let relaxedColor = Color.green
   private let focusedColor = Color.orange
+  private let textFontSize = 24
+  private let buttonFontSize = 36
 
   
   var body: some View {
-    
-    
     
     if workout.timer == nil {
       SetupView(
@@ -30,7 +30,8 @@ struct MainScreen: View {
         defaultColor: defaultColor,
         intensiveColor: intensiveColor,
         relaxedColor: relaxedColor,
-        focusedColor: focusedColor
+        focusedColor: focusedColor,
+        buttonFontSize: buttonFontSize
       )
     }
     else {
@@ -38,7 +39,10 @@ struct MainScreen: View {
         workout: workout,
         defaultColor: defaultColor,
         intensiveColor: intensiveColor,
-        relaxedColor: relaxedColor
+        relaxedColor: relaxedColor,
+        focusedColor: focusedColor,
+        textFontSize: textFontSize,
+        buttonFontSize: buttonFontSize
       )
     }
     

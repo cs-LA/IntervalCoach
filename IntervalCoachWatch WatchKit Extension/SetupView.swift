@@ -15,6 +15,8 @@ struct SetupView: View {
   let relaxedColor: Color
   let focusedColor: Color
   
+  let buttonFontSize: Int
+
   @FocusState<Bool> var repetitionsFocused :Bool
   @FocusState<Bool> var intensiveMinutesFocused :Bool
   @FocusState<Bool> var intensiveSecondsFocused :Bool
@@ -35,7 +37,7 @@ struct SetupView: View {
             Text("\(Int(workout.repetitions))")
               .focusable(true)
               .focused($repetitionsFocused)
-              .digitalCrownRotation($workout.repetitions, from: 0, through: 99, by: 1.0, sensitivity: .medium, isContinuous: false, isHapticFeedbackEnabled: true)
+              .digitalCrownRotation($workout.repetitions.asFloat(), from: 0, through: 99, by: 1.0, sensitivity: .medium, isContinuous: false, isHapticFeedbackEnabled: true)
               .font(.system(.footnote, design: .monospaced))
               .foregroundColor(repetitionsFocused ? focusedColor : defaultColor)
             Text("x")
@@ -54,7 +56,7 @@ struct SetupView: View {
             Text("\(Int(workout.intensiveTimeMinutes))")
               .focusable(true)
               .focused($intensiveMinutesFocused)
-              .digitalCrownRotation($workout.intensiveTimeMinutes, from: 0, through: 59, by: 1.0, sensitivity: .medium, isContinuous: false, isHapticFeedbackEnabled: true)
+              .digitalCrownRotation($workout.intensiveTimeMinutes.asFloat(), from: 0, through: 59, by: 1.0, sensitivity: .medium, isContinuous: false, isHapticFeedbackEnabled: true)
               .font(.system(.footnote, design: .monospaced))
               .foregroundColor(intensiveMinutesFocused ? focusedColor : intensiveColor)
             Text("'")
@@ -65,7 +67,7 @@ struct SetupView: View {
             Text(workout.intensiveTimeSeconds < 10 ? "0\(Int(workout.intensiveTimeSeconds))" : "\(Int(workout.intensiveTimeSeconds))")
               .focusable(true)
               .focused($intensiveSecondsFocused)
-              .digitalCrownRotation($workout.intensiveTimeSeconds, from: 0, through: 59, by: 1.0, sensitivity: .medium, isContinuous: false, isHapticFeedbackEnabled: true)
+              .digitalCrownRotation($workout.intensiveTimeSeconds.asFloat(), from: 0, through: 59, by: 1.0, sensitivity: .medium, isContinuous: false, isHapticFeedbackEnabled: true)
               .font(.system(.footnote, design: .monospaced))
               .foregroundColor(intensiveSecondsFocused ? focusedColor : intensiveColor)
             Text("''")
@@ -83,7 +85,7 @@ struct SetupView: View {
             Text("\(Int(workout.relaxedTimeMinutes))")
               .focusable(true)
               .focused($relaxedMinutesFocused)
-              .digitalCrownRotation($workout.relaxedTimeMinutes, from: 0, through: 59, by: 1.0, sensitivity: .medium, isContinuous: false, isHapticFeedbackEnabled: true)
+              .digitalCrownRotation($workout.relaxedTimeMinutes.asFloat(), from: 0, through: 59, by: 1.0, sensitivity: .medium, isContinuous: false, isHapticFeedbackEnabled: true)
               .font(.system(.footnote, design: .monospaced))
               .foregroundColor(relaxedMinutesFocused ? focusedColor : relaxedColor)
             Text("'")
@@ -94,7 +96,7 @@ struct SetupView: View {
             Text(workout.relaxedTimeSeconds < 10 ? "0\(Int(workout.relaxedTimeSeconds))" : "\(Int(workout.relaxedTimeSeconds))")
               .focusable(true)
               .focused($relaxedSecondsFocused)
-              .digitalCrownRotation($workout.relaxedTimeSeconds, from: 0, through: 59, by: 1.0, sensitivity: .medium, isContinuous: false, isHapticFeedbackEnabled: true)
+              .digitalCrownRotation($workout.relaxedTimeSeconds.asFloat(), from: 0, through: 59, by: 1.0, sensitivity: .medium, isContinuous: false, isHapticFeedbackEnabled: true)
               .font(.system(.footnote, design: .monospaced))
               .foregroundColor(relaxedSecondsFocused ? focusedColor : relaxedColor)
             Text("''")
@@ -104,26 +106,15 @@ struct SetupView: View {
         }
         
         
-//        HStack(spacing: 5) {
-//          Spacer()
-          Text(workout.errorMessage)
-            .font(.system(.footnote))
-            .foregroundColor(.blue)
-//          Spacer()
-//        }
+        Text(workout.errorMessage)
+          .font(.system(.footnote))
+          .foregroundColor(.blue)
         
         HStack(spacing: 5) {
           Image(systemName: "play.fill")
-            .font(.system(.title))
-            .foregroundColor(Color.orange)
+            .font(.system(size: CGFloat(buttonFontSize)))
+            .foregroundColor(focusedColor)
             .onTapGesture { workout.start() }
-//          Spacer()
-//          Button(action: { workout.start() }) {
-//            Image(systemName: "play.fill")
-//              .font(.system(.title))
-//              .foregroundColor(Color.orange)
-//          }
-//          Spacer()
         }
         
       }
@@ -135,4 +126,11 @@ struct SetupView: View {
 }
 
 
+
+extension Binding where Value == Int {
+  public func asFloat() -> Binding<Float> {
+    return Binding<Float>(get:{ Float(self.wrappedValue) },
+                          set: { self.wrappedValue = Int($0)})
+  }
+}
 

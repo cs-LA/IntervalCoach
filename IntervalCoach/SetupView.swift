@@ -13,6 +13,9 @@ struct SetupView: View {
   let defaultColor: Color
   let intensiveColor: Color
   let relaxedColor: Color
+  let focusedColor: Color
+
+  let buttonFontSize: Int
 
   private let fieldWidth: CGFloat = 39
 

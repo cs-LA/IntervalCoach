@@ -29,8 +29,8 @@ import BackgroundTasks
 @main
 struct IntervalCoachApp: App {
 
-  let workout = Workout()
-  
+  let workout = Workout(backGroundManager: BackgroundManager())
+
   init() {
     do {
       // see https://developer.apple.com/documentation/avfoundation/avaudiosessioncategoryplayback

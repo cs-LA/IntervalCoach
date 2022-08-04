@@ -14,7 +14,11 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
 
     func getComplicationDescriptors(handler: @escaping ([CLKComplicationDescriptor]) -> Void) {
         let descriptors = [
-            CLKComplicationDescriptor(identifier: "complication", displayName: "IntervalCoach", supportedFamilies: CLKComplicationFamily.allCases)
+            CLKComplicationDescriptor(
+              identifier: "complication",
+              displayName: "IntervalCoach",
+              supportedFamilies: CLKComplicationFamily.allCases
+            )
             // Multiple complication support can be added here with more descriptors
         ]
         
@@ -42,7 +46,15 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
         // Call the handler with the current timeline entry
-        handler(nil)
+//      guard let image = UIImage(named: "Complication/Circular") else { print("noIcon"); handler(nil); return }
+//      print(image)
+//      let imageProvider = CLKFullColorImageProvider(fullColorImage: image)
+//      let template = CLKComplicationTemplateGraphicCircularImage(imageProvider: imageProvider)
+//      let ip = CLKImageProvider(onePieceImage: image)
+//      let tp = CLKComplicationTemplateUtilitarianSmallFlat(textProvider: CLKTextProvider(format: "ic"), imageProvider: ip)
+//      let timeLineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: tp)
+//      handler(timeLineEntry)
+      handler(nil)
     }
     
     func getTimelineEntries(for complication: CLKComplication, after date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {

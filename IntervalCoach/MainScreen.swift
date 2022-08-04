@@ -26,7 +26,9 @@ struct MainScreen: View {
   private let defaultColor = Color.secondary
   private let intensiveColor = Color(.systemRed)
   private let relaxedColor = Color(.systemGreen)
-
+  private let focusedColor = Color(.systemOrange)
+  private let textFontSize = 50
+  private let buttonFontSize = 100
   
   var body: some View {
     
@@ -36,14 +38,19 @@ struct MainScreen: View {
         workout: workout,
         defaultColor: defaultColor,
         intensiveColor: intensiveColor,
-        relaxedColor: relaxedColor
+        relaxedColor: relaxedColor,
+        focusedColor: focusedColor,
+        buttonFontSize: buttonFontSize
       )
       Spacer()
       ExerciseView(
         workout: workout,
         defaultColor: defaultColor,
         intensiveColor: intensiveColor,
-        relaxedColor: relaxedColor
+        relaxedColor: relaxedColor,
+        focusedColor: focusedColor,
+        textFontSize: textFontSize,
+        buttonFontSize: buttonFontSize
       )
         .padding()
         .frame(height: frameWidth)

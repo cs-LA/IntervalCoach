@@ -9,36 +9,43 @@ import SwiftUI
 
 class Workout: ObservableObject {
   
-  init() {
+  let bgMgr: BackgroundManagerProtocol
+  
+  init(backGroundManager: BackgroundManagerProtocol) {
     let intensiveTime = max(UserDefaults.standard.integer(forKey: "intensiveTime"), 0)
-    intensiveTimeMinutes = Double(intensiveTime / 60)
-    intensiveTimeSeconds = Double(intensiveTime % 60)
+    intensiveTimeMinutes = intensiveTime / 60
+    intensiveTimeSeconds = intensiveTime % 60
     let relaxedTime = max(UserDefaults.standard.integer(forKey: "relaxedTime"), 0)
-    relaxedTimeMinutes = Double(relaxedTime / 60)
-    relaxedTimeSeconds = Double(relaxedTime % 60)
-    repetitions = Double(max(UserDefaults.standard.integer(forKey: "repetitions"), 1))
+    relaxedTimeMinutes = relaxedTime / 60
+    relaxedTimeSeconds = relaxedTime % 60
+    repetitions = max(UserDefaults.standard.integer(forKey: "repetitions"), 1)
+    
+    bgMgr = backGroundManager
   }
   
 
-  @Published var intensiveTimeMinutes: Double
-  @Published var intensiveTimeSeconds: Double
-  @Published var relaxedTimeMinutes: Double
-  @Published var relaxedTimeSeconds: Double
-  @Published var repetitions: Double
+  @Published var intensiveTimeMinutes: Int
+  @Published var intensiveTimeSeconds: Int
+  @Published var relaxedTimeMinutes: Int
+  @Published var relaxedTimeSeconds: Int
+  @Published var repetitions: Int
   @Published var errorMessage = " \n "
+
   
   var timer: Cancellable? = nil
   @Published var secondsGone = 0
   var secondsToGo = 0
   var repCounter = 0
   var isIntensive = false
-  
-  var xRtSession: WKExtendedRuntimeSession? = nil
+
+  var intensiveTime = 0
+  var relaxedTime = 0
+
   
   func start() {
     errorMessage = " \n "
-    let intensiveTime = intensiveTimeMinutes * 60 + intensiveTimeSeconds
-    let relaxedTime = relaxedTimeMinutes * 60 + relaxedTimeSeconds
+    intensiveTime = intensiveTimeMinutes * 60 + intensiveTimeSeconds
+    relaxedTime = relaxedTimeMinutes * 60 + relaxedTimeSeconds
     guard intensiveTime + relaxedTime > 0 else {
       errorMessage = NSLocalizedString("zeroTimeMsg", comment: "")
       return
@@ -50,7 +57,7 @@ class Workout: ObservableObject {
     
     repCounter = 0
     isIntensive = false
-    secondsToGo = Int(relaxedTime)
+    secondsToGo = relaxedTime
     secondsGone = 1
     
     UserDefaults.standard.set(Date().timeIntervalSinceReferenceDate, forKey: "workoutStartTime")
@@ -60,9 +67,8 @@ class Workout: ObservableObject {
       .sink { [self] _ in
         update()
       }
-
-    xRtSession = WKExtendedRuntimeSession()
-    xRtSession?.start()
+    
+    bgMgr.enableBackgroundProcessing(self)
   }
   
   
@@ -85,14 +91,6 @@ class Workout: ObservableObject {
     else {
       secondsElapsed = secondsElapsed - relaxedTime
       repCounter = secondsElapsed / repetitionTime + 1
-      if repCounter > Int(repetitions) {
-        //AudioServicesPlaySystemSound(workoutFinishedSoundID)
-        WKInterfaceDevice.current().play(.success)
-        //xRtSession.notifyUser(hapticType: .success, repeatHandler: nil)
-        stop()
-        return
-      }
-      
       secondsElapsed = secondsElapsed % repetitionTime
       isIntensive = secondsElapsed < intensiveTime
       
@@ -108,35 +106,31 @@ class Workout: ObservableObject {
     
     secondsGone += 1
     print("\(repCounter) - \(secondsGone) - \(isIntensive)")
-    //    if secondsGone == secondsToGo {
-    //      isIntensive
-    //      ? AudioServicesPlaySystemSound(stopIntensiveSoundID)
-    //      : AudioServicesPlaySystemSound(startIntensiveSoundID)
-    //      print("whistled")
-    //    }
     
     if isIntensive {
-      if secondsGone == secondsToGo / 2 { //AudioServicesPlaySystemSound(intensiveHalfSplitSoundID)
-        WKInterfaceDevice.current().play(.retry)
-        //xRtSession.notifyUser(hapticType: .retry, repeatHandler: nil)
+      if secondsGone == secondsToGo / 2 {
+        AlarmManager.play(AlarmHalfSplit())
       }
-      if secondsGone == secondsToGo { //AudioServicesPlaySystemSound(stopIntensiveSoundID)
-        WKInterfaceDevice.current().play(.stop)
-        //xRtSession.notifyUser(hapticType: .stop, repeatHandler: nil)
+      if secondsGone == secondsToGo {
+        AlarmManager.play(AlarmStop())
       }
     }
     else {
-      if secondsGone == secondsToGo { //AudioServicesPlaySystemSound(startIntensiveSoundID)
-        WKInterfaceDevice.current().play(.start)
-        //xRtSession.notifyUser(hapticType: .start, repeatHandler: nil)
+      if secondsGone == secondsToGo {
+        if repCounter < Int(repetitions) {
+          AlarmManager.play(AlarmStart())
+        }
+        else {
+          AlarmManager.play(AlarmStop())
+          stop()
+        }
       }
     }
   }
   
   
   func stop() {
-    xRtSession?.invalidate()
-    xRtSession = nil
+    bgMgr.disableBackgroundProcessing()
     timer?.cancel()
     timer = nil
     
@@ -144,5 +138,5 @@ class Workout: ObservableObject {
     secondsToGo = 0
     repCounter = 0
   }
-  
+
 }
