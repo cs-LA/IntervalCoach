@@ -8,7 +8,7 @@ import SwiftUI
 
 struct BackgroundManager: BackgroundManagerProtocol {
   
-  func enableBackgroundProcessing(_ workout: Workout? = nil) { print("iOS-BgMgr")
+  func enableBackgroundProcessing(_ workout: Workout? = nil) {
     guard let workout = workout else { return }
     var notificationTimeOffset = -1
     for rep in 1...UserDefaults.standard.integer(forKey: "repetitions") {
@@ -40,7 +40,7 @@ struct BackgroundManager: BackgroundManagerProtocol {
     )
   }
   
-  func disableBackgroundProcessing() { print("iOS-BgMgr")
+  func disableBackgroundProcessing() {
     UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
   }
  

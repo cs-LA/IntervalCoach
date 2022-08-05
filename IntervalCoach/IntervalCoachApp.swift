@@ -37,7 +37,7 @@ struct IntervalCoachApp: App {
       // and https://developer.apple.com/documentation/avfoundation/avaudiosessionmodemovieplayback
       try AVAudioSession.sharedInstance()
         .setCategory(.playback, options: .duckOthers)
-      print("AVAudioSession-Category set")
+
     }
     catch {
       print("Error setting AVAudioSession-Category:\n\(error)\nBecause of this, there may be no sound.")
@@ -45,8 +45,7 @@ struct IntervalCoachApp: App {
     
     UNUserNotificationCenter.current()
       .requestAuthorization(options: [.alert, .badge ,.sound]) { success, error in
-        if success { print("Notification-Authorization granted") }
-        else { print("Notification-Authorization denied") }
+        if !success { print("Notification-Authorization denied") }
         
         if let error = error {
           print("Error requesting Notification-Authorization:\n\(error)\nBecause of this, background processing will not work.")

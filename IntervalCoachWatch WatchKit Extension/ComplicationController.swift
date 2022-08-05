@@ -46,14 +46,6 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
         // Call the handler with the current timeline entry
-//      guard let image = UIImage(named: "Complication/Circular") else { print("noIcon"); handler(nil); return }
-//      print(image)
-//      let imageProvider = CLKFullColorImageProvider(fullColorImage: image)
-//      let template = CLKComplicationTemplateGraphicCircularImage(imageProvider: imageProvider)
-//      let ip = CLKImageProvider(onePieceImage: image)
-//      let tp = CLKComplicationTemplateUtilitarianSmallFlat(textProvider: CLKTextProvider(format: "ic"), imageProvider: ip)
-//      let timeLineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: tp)
-//      handler(timeLineEntry)
       handler(nil)
     }
     

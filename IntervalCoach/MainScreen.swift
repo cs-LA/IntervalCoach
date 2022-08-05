@@ -13,7 +13,7 @@ struct MainScreen: View {
   init(workout: Workout) {
     self.workout = workout
     
-    print(UIScreen.main.bounds.size)
+    //print(UIScreen.main.bounds.size)
     // iPhone8              ( 375.0,  667.0)
     // iPhone13mini         ( 375.0,  812.0)
     // iPadPro 12.9inch     (1024.0, 1366.0)
