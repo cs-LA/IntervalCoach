@@ -24,7 +24,7 @@ struct ExerciseView: View {
     ZStack {
       VStack {
         Spacer()
-        Text("\(twoDigitNumber(workout.repCounter))/\(twoDigitNumber(Int(workout.repetitions)))")
+        Text(String(format: "%02d", workout.repCounter) + "/" + String(format: "%02d", workout.repetitions))
           .font(.system(size: CGFloat(textFontSize), design: .monospaced))
           .foregroundColor(defaultColor)
         Text(timeCountDown())
@@ -57,14 +57,9 @@ struct ExerciseView: View {
     let seconds = currentTime % 60
     let minutes = Int(currentTime / 60)
     
-    return "\(minutes < 10 ? "0" : "")\(minutes):\(seconds < 10 ? "0" : "")\(seconds)"
+    return String(format: "%02d", minutes) + ":" + String(format: "%02d", seconds)
   }
 
-  
-  func twoDigitNumber(_ number: Int) -> String {
-    return "\(number < 10 ? "0" : "")\(number)"
-  }
-  
   
   private func progressBarColor() -> Color {
     if workout.timer == nil { return Color.gray }

@@ -9,16 +9,14 @@ import SwiftUI
 struct SetupView: View {
   
   @ObservedObject var workout: Workout
-
+  
   let defaultColor: Color
   let intensiveColor: Color
   let relaxedColor: Color
   let focusedColor: Color
-
+  
   let buttonFontSize: Int
-
-  private let fieldWidth: CGFloat = 39
-
+  
   
   var body: some View {
     
@@ -34,16 +32,13 @@ struct SetupView: View {
           }
         } label: {}
       } label: {
-        HStack(spacing: 2) {
-          TextField("", value: $workout.repetitions, format: .number)
-            .font(.title)
+        HStack(spacing: 1) {
+          Text(String(workout.repetitions))
+            .font(.system(.title, design: .monospaced))
             .foregroundColor(defaultColor)
-            .multilineTextAlignment(.trailing)
-            .frame(width: fieldWidth, height: 30)
           Text("x")
             .font(.title)
             .foregroundColor(defaultColor)
-            .multilineTextAlignment(.trailing)
         }
       }
     }
@@ -60,16 +55,13 @@ struct SetupView: View {
           }
         } label: {}
       } label: {
-        HStack(spacing: 2) {
-          TextField("", value: $workout.intensiveTimeMinutes, format: .number)
-            .font(.title)
+        HStack(spacing: 1) {
+          Text(String(workout.intensiveTimeMinutes))
+            .font(.system(.title, design: .monospaced))
             .foregroundColor(intensiveColor)
-            .multilineTextAlignment(.trailing)
-            .frame(width: fieldWidth, height: 30)
           Text("'")
             .font(.title)
             .foregroundColor(intensiveColor)
-            .multilineTextAlignment(.trailing)
         }
       }
       Menu {
@@ -79,16 +71,13 @@ struct SetupView: View {
           }
         } label: {}
       } label: {
-        HStack(spacing: 2) {
-          TextField("", value: $workout.intensiveTimeSeconds, format: .number)
-            .font(.title)
+        HStack(spacing: 1) {
+          Text(String(format: "%02d", workout.intensiveTimeSeconds))
+            .font(.system(.title, design: .monospaced))
             .foregroundColor(intensiveColor)
-            .multilineTextAlignment(.trailing)
-            .frame(width: fieldWidth, height: 30)
           Text("''")
             .font(.title)
             .foregroundColor(intensiveColor)
-            .multilineTextAlignment(.trailing)
         }
       }
     }
@@ -105,16 +94,13 @@ struct SetupView: View {
           }
         } label: {}
       } label: {
-        HStack(spacing: 2) {
-          TextField("", value: $workout.relaxedTimeMinutes, format: .number)
-            .font(.title)
+        HStack(spacing: 1) {
+          Text(String(workout.relaxedTimeMinutes))
+            .font(.system(.title, design: .monospaced))
             .foregroundColor(relaxedColor)
-            .multilineTextAlignment(.trailing)
-            .frame(width: fieldWidth, height: 30)
           Text("'")
             .font(.title)
             .foregroundColor(relaxedColor)
-            .multilineTextAlignment(.trailing)
         }
       }
       Menu {
@@ -124,20 +110,17 @@ struct SetupView: View {
           }
         } label: {}
       } label: {
-        HStack(spacing: 2) {
-          TextField("", value: $workout.relaxedTimeSeconds, format: .number)
-            .font(.title)
+        HStack(spacing: 1) {
+          Text(String(format: "%02d", workout.relaxedTimeSeconds))
+            .font(.system(.title, design: .monospaced))
             .foregroundColor(relaxedColor)
-            .multilineTextAlignment(.trailing)
-            .frame(width: fieldWidth, height: 30)
           Text("''")
             .font(.title)
             .foregroundColor(relaxedColor)
-            .multilineTextAlignment(.trailing)
         }
       }
     }
-
+    
     HStack(spacing: 5) {
       Spacer()
       Text(workout.errorMessage)
@@ -147,5 +130,5 @@ struct SetupView: View {
     }
     
   }
-
+  
 }

@@ -64,7 +64,7 @@ struct SetupView: View {
               .foregroundColor(intensiveColor)
           }
           HStack(spacing: 1) {
-            Text(workout.intensiveTimeSeconds < 10 ? "0\(Int(workout.intensiveTimeSeconds))" : "\(Int(workout.intensiveTimeSeconds))")
+            Text(String(format: "%02d", workout.intensiveTimeSeconds))
               .focusable(true)
               .focused($intensiveSecondsFocused)
               .digitalCrownRotation($workout.intensiveTimeSeconds.asFloat(), from: 0, through: 59, by: 1.0, sensitivity: .medium, isContinuous: false, isHapticFeedbackEnabled: true)
@@ -93,7 +93,7 @@ struct SetupView: View {
               .foregroundColor(relaxedColor)
           }
           HStack(spacing: 1) {
-            Text(workout.relaxedTimeSeconds < 10 ? "0\(Int(workout.relaxedTimeSeconds))" : "\(Int(workout.relaxedTimeSeconds))")
+            Text(String(format: "%02d", workout.relaxedTimeSeconds))
               .focusable(true)
               .focused($relaxedSecondsFocused)
               .digitalCrownRotation($workout.relaxedTimeSeconds.asFloat(), from: 0, through: 59, by: 1.0, sensitivity: .medium, isContinuous: false, isHapticFeedbackEnabled: true)
@@ -109,6 +109,7 @@ struct SetupView: View {
         Text(workout.errorMessage)
           .font(.system(.footnote))
           .foregroundColor(.blue)
+        
         
         HStack(spacing: 5) {
           Image(systemName: "play.fill")
@@ -133,4 +134,3 @@ extension Binding where Value == Int {
                           set: { self.wrappedValue = Int($0)})
   }
 }
-
