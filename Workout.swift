@@ -29,7 +29,6 @@ class Workout: ObservableObject {
   @Published var relaxedTimeMinutes: Int
   @Published var relaxedTimeSeconds: Int
   @Published var repetitions: Int
-  @Published var errorMessage = " \n "
 
   
   var timer: Cancellable? = nil
@@ -43,11 +42,10 @@ class Workout: ObservableObject {
 
   
   func start() {
-    errorMessage = " \n "
     intensiveTime = intensiveTimeMinutes * 60 + intensiveTimeSeconds
     relaxedTime = relaxedTimeMinutes * 60 + relaxedTimeSeconds
     guard intensiveTime + relaxedTime > 0 else {
-      errorMessage = NSLocalizedString("zeroTimeMsg", comment: "")
+      AlarmManager.play(AlarmFinished())
       return
     }
     
@@ -121,7 +119,7 @@ class Workout: ObservableObject {
           AlarmManager.play(AlarmStart())
         }
         else {
-          AlarmManager.play(AlarmStop())
+          AlarmManager.play(AlarmFinished())
           stop()
         }
       }

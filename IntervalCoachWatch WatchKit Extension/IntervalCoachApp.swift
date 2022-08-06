@@ -22,7 +22,9 @@ struct IntervalCoachApp: App {
         case .active:
           if workout.timer != nil { workout.bgMgr.enableBackgroundProcessing(nil) }
         case .inactive:
+          break
         case .background:
+          break
         @unknown default:
           print("Oh - interesting: I received an unexpected new value.")
       }

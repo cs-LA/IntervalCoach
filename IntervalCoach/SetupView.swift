@@ -121,14 +121,6 @@ struct SetupView: View {
       }
     }
     
-    HStack(spacing: 5) {
-      Spacer()
-      Text(workout.errorMessage)
-        .font(.callout)
-        .foregroundColor(Color.blue)
-      Spacer()
-    }
-    
-  }
+err  }
   
 }

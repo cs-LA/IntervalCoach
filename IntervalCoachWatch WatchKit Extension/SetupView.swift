@@ -9,6 +9,7 @@ import SwiftUI
 struct SetupView: View {
   
   @ObservedObject var workout: Workout
+  @State var showInfo = false
   
   let defaultColor: Color
   let intensiveColor: Color
@@ -16,12 +17,13 @@ struct SetupView: View {
   let focusedColor: Color
   
   let buttonFontSize: Int
-
+  
   @FocusState<Bool> var repetitionsFocused :Bool
   @FocusState<Bool> var intensiveMinutesFocused :Bool
   @FocusState<Bool> var intensiveSecondsFocused :Bool
   @FocusState<Bool> var relaxedMinutesFocused :Bool
   @FocusState<Bool> var relaxedSecondsFocused :Bool
+  
   
   var body: some View {
     
@@ -106,16 +108,27 @@ struct SetupView: View {
         }
         
         
-        Text(workout.errorMessage)
-          .font(.system(.footnote))
-          .foregroundColor(.blue)
-        
-        
         HStack(spacing: 5) {
+          Spacer()
           Image(systemName: "play.fill")
             .font(.system(size: CGFloat(buttonFontSize)))
             .foregroundColor(focusedColor)
             .onTapGesture { workout.start() }
+          Spacer()
+        }
+        .padding(.top, 20)
+        .padding(.bottom, 5)
+        .contentShape(Rectangle())
+        .onLongPressGesture(perform: {
+          print("longPressed")
+          showInfo = true
+        })
+        .alert(isPresented: $showInfo) {
+          Alert(
+            title: Text("IntervalCoachWatch"),
+            message: Text(appVersion),
+            dismissButton: .default(Text("OK"))
+          )
         }
         
       }
@@ -127,10 +140,13 @@ struct SetupView: View {
 }
 
 
-
 extension Binding where Value == Int {
+  
   public func asFloat() -> Binding<Float> {
-    return Binding<Float>(get:{ Float(self.wrappedValue) },
-                          set: { self.wrappedValue = Int($0)})
+    return Binding<Float>(
+      get: { Float(self.wrappedValue) },
+      set: { self.wrappedValue = Int($0) }
+    )
   }
+  
 }
