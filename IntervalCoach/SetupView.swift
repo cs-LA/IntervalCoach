@@ -121,6 +121,7 @@ struct SetupView: View {
       }
     }
     
-err  }
+  }
   
 }
+
