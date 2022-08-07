@@ -89,6 +89,10 @@ class Workout: ObservableObject {
     else {
       secondsElapsed = secondsElapsed - relaxedTime
       repCounter = secondsElapsed / repetitionTime + 1
+      if repCounter > repetitions { // Emergency Exit in case we missed the secondsGone == secondsToGo moment !
+        AlarmManager.play(AlarmFinished())
+        stop()
+      }
       secondsElapsed = secondsElapsed % repetitionTime
       isIntensive = secondsElapsed < intensiveTime
       
