@@ -55,7 +55,7 @@ struct ExerciseView: View {
   func timeCountDown() -> String {
     let currentTime = workout.secondsToGo - workout.secondsGone
     let seconds = currentTime % 60
-    let minutes = Int(currentTime / 60)
+    let minutes = currentTime / 60
     
     return String(format: "%02d", minutes) + ":" + String(format: "%02d", seconds)
   }
