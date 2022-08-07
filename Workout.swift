@@ -115,7 +115,7 @@ class Workout: ObservableObject {
     }
     else {
       if secondsGone == secondsToGo {
-        if repCounter < Int(repetitions) {
+        if repCounter < repetitions {
           AlarmManager.play(AlarmStart())
         }
         else {
